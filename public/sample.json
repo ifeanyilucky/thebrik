@@ -1,0 +1,41 @@
+[{
+    "src": "https://images.squarespace-cdn.com/content/v1/5bf48451620b851a77ad58d9/1550606201406-ONR713CJV9Y3G1ARWAKN/2bed+Ogidi+crescent+Lekki+1.jpg?format=750w",
+    "title": "3 bedroom flat available to Iyana Iba Junction",
+    "purpose": "for rent",
+    "price": 170000,
+    "address": "34, Iyanaba, badagry, Lagos",
+    "featured": false,
+    "agent": "Chika Joseph",
+    "numberOfBed": 1
+  },
+  {
+    "src": "https://images.squarespace-cdn.com/content/v1/5bf48451620b851a77ad58d9/1550606387420-WYQ39QG4XDERWV0NBDVF/Joseph+court+1.jpg?format=750w",
+    "title": "Mini flat at iyanaba junction of filling station",
+    "purpose": "for rent",
+    "price": 140000,
+    "address": "34, Iyanaba, badagry, Lagos",
+    "featured": true,
+    "agent": "Daria Ebisidor",
+    "numberOfBed": 4
+  },
+  {
+    "src": "https://images.squarespace-cdn.com/content/v1/5bf48451620b851a77ad58d9/1551831312676-38J1V90L7RVXBIZRS4BH/1.+Blue+Water+Lagos_Living+Room+2_web.jpg?format=750w",
+    "title": "single room at first gate way road",
+    "purpose": "for rent",
+    "address": "34, Iyanaba, badagry, Lagos",
+    "price": 130000,
+    "featured": false,
+    "agent": "Ifeanyi Lucky",
+    "numberOfBed": 3
+  },
+  {
+    "src": "https://images.squarespace-cdn.com/content/v1/5bf48451620b851a77ad58d9/1551831312676-38J1V90L7RVXBIZRS4BH/1.+Blue+Water+Lagos_Living+Room+2_web.jpg?format=750w",
+    "title": "single room at first gate road",
+    "purpose": "for rent",
+    "price": 190000,
+    "address": "34, Iyanaba, badagry, Lagos",
+    "featured": true,
+    "agent": "Awotula Damilare",
+    "numberOfBed": 5
+  }
+]

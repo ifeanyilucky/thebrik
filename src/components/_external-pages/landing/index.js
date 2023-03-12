@@ -1,0 +1,10 @@
+export { default as LandingHero } from './LandingHero';
+export { default as LandingSteps } from './LandingSteps';
+export { default as LandingBudget } from './LandingBudget';
+export { default as LandingFAQ } from './LandingFAQ';
+export { default as LandingWhyThebrik } from './LandingWhyThebrik';
+export { default as LandingTestimonial } from './LandingTestimonial';
+export { default as LandingHeroImage } from './LandingHeroImage';
+export { default as Simplify } from './Simplify';
+export { default as LandingListings } from './LandingListings';
+export { default as LandingPartner } from './LandingPartner';

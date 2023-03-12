@@ -1,0 +1,32 @@
+@font-face {
+  font-family: Euclid Circular A;
+  font-weight: 100;
+  src: url('../static/fonts/EuclidCircularA-Light.woff') format('woff');
+}
+/* @font-face {
+  font-family: Euclid Circular A;
+  font-weight: 200;
+  src: url('../static/fonts/EuclidCircularA-Regular.woff');
+  src: local('GT Walsheim'), url('../static/fonts/') format('woff');
+} */
+@font-face {
+  font-family: Euclid Circular A;
+  font-weight: 200;
+  src: url('../static/fonts/EuclidCircularA-Regular.woff');
+  src: url('../static/fonts/EuclidCircularA-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: Euclid Circular A;
+  font-weight: 700;
+  src: url('../static/fonts/EuclidCircularA-SemiBold.woff') format('woff');
+}
+@font-face {
+  font-family: Euclid Circular A;
+  font-weight: 400;
+  src: url('../static/fonts/EuclidCircularA-Medium.woff') format('woff');
+}
+@font-face {
+  font-family: Euclid Circular A;
+  font-weight: 900;
+  src: url('../static/fonts/EuclidCircularA-Bold.woff') format('woff');
+}
