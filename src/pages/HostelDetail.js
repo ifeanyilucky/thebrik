@@ -36,6 +36,7 @@ import { useAuth } from '../hooks/useAuth';
 import Iconify from '../components/Iconify';
 import { HostelCard } from '../components/hostel';
 import { getHostel, getHostels } from '../redux/slices/hostels';
+import { useAnalyticEventTracker } from '../hooks/useAnalyticEventTracker';
 
 // ----------------------------------------------------------------------
 
@@ -93,6 +94,7 @@ export default function HostelDetails() {
   const title = `${hostel?.name} | Thebrik.co`;
   const url = window.location.href;
   const iconSize = 32;
+  const gaEventTracker = useAnalyticEventTracker('Social share');
   if (isLoading && !hostel) {
     return SkeletonLoad;
   }
@@ -120,20 +122,43 @@ export default function HostelDetails() {
 
               <Stack direction="row" spacing={2} alignItems="center" justifyContent="flex-end">
                 <Typography variant="body1">Share:</Typography>
-                <TwitterShareButton url={url} title={title}>
+                <TwitterShareButton
+                  onClick={() => gaEventTracker(`shared ${url}`, 'twitter')}
+                  url={url}
+                  title={title}
+                >
                   <TwitterIcon size={iconSize} round />
                 </TwitterShareButton>
-                <FacebookShareButton url={url} quote={title} className="share-button">
+                <FacebookShareButton
+                  onClick={() => gaEventTracker(`shared ${url}`, 'facebook')}
+                  url={url}
+                  quote={title}
+                  className="share-button"
+                >
                   <FacebookIcon size={iconSize} round />
                 </FacebookShareButton>
-                <WhatsappShareButton url={url} className="share-button">
+                <WhatsappShareButton
+                  onClick={() => gaEventTracker(`shared ${url}`, 'whatsapp')}
+                  url={url}
+                  className="share-button"
+                >
                   <WhatsappIcon size={iconSize} round />
                 </WhatsappShareButton>
-                <LinkedinShareButton url={url} title={title} className="share-button">
+                <LinkedinShareButton
+                  onClick={() => gaEventTracker(`shared ${url}`, 'linkedIn')}
+                  url={url}
+                  title={title}
+                  className="share-button"
+                >
                   <LinkedinIcon size={iconSize} round />
                 </LinkedinShareButton>
 
-                <TelegramShareButton url={url} title={title} className="share-button">
+                <TelegramShareButton
+                  onClick={() => gaEventTracker(`shared ${url}`, 'telegram')}
+                  url={url}
+                  title={title}
+                  className="share-button"
+                >
                   <TelegramIcon size={iconSize} round />
                 </TelegramShareButton>
               </Stack>

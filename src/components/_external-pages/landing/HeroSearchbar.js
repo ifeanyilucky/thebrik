@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { styled as MuiStyled } from '@mui/material/styles';
 import { useAutocomplete, autocompleteClasses } from '@mui/material';
 import { PATH_PAGE } from '../../../routes/paths';
-import { useAnalyticsEventTracker } from '../../../utils/useAnalyticsEventTracker';
+import { useAnalyticsEventTracker } from '../../../hooks/useAnalyticEventTracker';
 
 const Input = MuiStyled('input')(({ theme }) => ({
   width: 200,
