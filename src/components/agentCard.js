@@ -158,7 +158,7 @@ const PaymentContent = ({ hostel, user }) => {
               ) : (
                 <Typography variant="body2" color="error.main" textAlign="center">
                   {' '}
-                  You cannot make payment as a host, Please{' '}
+                  You cannot make payment as an agent, Please{' '}
                   <Link onClick={redirectRegister}>register an account</Link>
                   &nbsp; as a renter
                 </Typography>

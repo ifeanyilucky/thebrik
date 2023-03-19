@@ -18,7 +18,7 @@ import { useAuth } from './hooks/useAuth';
 
 export default function App() {
   const { isInitialized } = useAuth();
-  const TRACKING_ID = process.env.REACT_APP_GA_MEASUREMENT_ID;
+  const TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID;
   ReactGA.initialize(TRACKING_ID);
   return (
     <ThemeProvider>

@@ -14,7 +14,7 @@ import { Formik, Form } from 'formik';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import { DateTimePicker, LocalizationProvider, LoadingButton } from '@mui/lab';
 import { Link as RouterLink, useNavigate, useSearchParams, useLocation } from 'react-router-dom';
-import toast, { Toaster } from 'react-hot-toast';
+
 import PropTypes from 'prop-types';
 import { result, find } from 'lodash';
 import * as yup from 'yup';
@@ -86,8 +86,6 @@ export default function InspectionBooking({ user, hostel }) {
       initialValues={initValues}
       validationSchema={validationSchema}
       onSubmit={(values, actions) => {
-        const { setSubmitting } = actions;
-
         if (firstName && lastName && tel && email) {
           dispatch(createBooking(values));
         } else {
@@ -95,7 +93,7 @@ export default function InspectionBooking({ user, hostel }) {
           navigate(PATH_DASHBOARD.account);
         }
       }}
-      render={({ values, setFieldValue, isSubmitting }) => (
+      render={({ values, setFieldValue }) => (
         <Form>
           <Stack spacing={2}>
             <Stack spacing={3}>
@@ -110,6 +108,7 @@ export default function InspectionBooking({ user, hostel }) {
                 required
               >
                 <MenuItem value="physical">Physical</MenuItem>
+                <MenuItem value="virtual">Virtual</MenuItem>
               </TextField>
               <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <Stack spacing={3}>
@@ -143,7 +142,7 @@ export default function InspectionBooking({ user, hostel }) {
                 variant="contained"
                 size="large"
                 type="submit"
-                disabled={!values.date && true}
+                disabled={!!(!values.date || user.role !== 'Member')}
               >
                 Book inspection
               </LoadingButton>

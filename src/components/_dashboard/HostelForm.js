@@ -19,9 +19,6 @@ import {
   FormControl,
   FormControlLabel,
   InputAdornment,
-  List,
-  ListItem,
-  Paper,
   FormGroup,
   Box,
   Checkbox,
@@ -29,7 +26,6 @@ import {
 } from '@mui/material';
 
 import { UploadMultiFile } from '../upload';
-import { useDispatch, useSelector } from '../../redux/store';
 // utils
 import axios from '../../utils/axios';
 import { fCurrency } from '../../utils/formatNumber';

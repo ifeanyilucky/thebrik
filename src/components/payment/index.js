@@ -19,7 +19,7 @@ export default function Payment({ user, hostel }) {
   const paystackConfig = {
     reference: new Date().getTime().toString(),
     email: user.email,
-    amount: 20000,
+    amount: `${hostel?.prices?.totalCost}00`,
     publicKey: config.paystack.public
   };
   const onPaymentSuccess = (reference) => {
@@ -28,7 +28,7 @@ export default function Payment({ user, hostel }) {
         makePayment({
           transaction: reference,
           hostel: hostel._id,
-          amount: paystackConfig.amount
+          amount: hostel?.prices?.totalCost
         })
       );
     }
