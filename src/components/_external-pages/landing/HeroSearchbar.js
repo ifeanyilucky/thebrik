@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { styled as MuiStyled } from '@mui/material/styles';
 import { useAutocomplete, autocompleteClasses } from '@mui/material';
 import { PATH_PAGE } from '../../../routes/paths';
-import { useAnalyticsEventTracker } from '../../../hooks/useAnalyticEventTracker';
+import { useAnalyticEventTracker } from '../../../hooks/useAnalyticEventTracker';
 
 const Input = MuiStyled('input')(({ theme }) => ({
   width: 200,
@@ -47,7 +47,7 @@ const areas = ['iba junction', 'ppl', 'post service', 'first gate', 'iyana schoo
 
 export default function HeroSearchbar() {
   const navigate = useNavigate();
-  const gaEventTracker = useAnalyticsEventTracker('Homepage search');
+  const gaEventTracker = useAnalyticEventTracker('Homepage search');
   const {
     getRootProps,
     getInputLabelProps,
