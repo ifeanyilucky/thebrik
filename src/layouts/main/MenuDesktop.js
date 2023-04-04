@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
 
 import { useState, useEffect } from 'react';
-import { NavLink as RouterLink, useLocation } from 'react-router-dom';
+import { NavLink as RouterLink } from 'react-router-dom';
 import arrowIosUpwardFill from '@iconify/icons-eva/arrow-ios-upward-fill';
 import arrowIosDownwardFill from '@iconify/icons-eva/arrow-ios-downward-fill';
 // material
@@ -91,7 +91,7 @@ function MenuDesktopItem({ item, isOpen, isOffset, onOpen, onClose }) {
             cursor: 'pointer',
             textDecoration: 'none',
             alignItems: 'center',
-            color: '#fff',
+
             ...(isOffset && { color: '#fff' }),
             ...(isOpen && { opacity: 0.48 })
           }}
@@ -105,7 +105,7 @@ function MenuDesktopItem({ item, isOpen, isOffset, onOpen, onClose }) {
           />
         </LinkStyle>
 
-        {/* <Popover
+        <Popover
           open={isOpen}
           anchorReference="anchorPosition"
           anchorPosition={{ top: 80, left: 0 }}
@@ -130,22 +130,8 @@ function MenuDesktopItem({ item, isOpen, isOffset, onOpen, onClose }) {
               const { subheader, items } = list;
 
               return (
-                <Grid key={subheader} item xs={12} md={subheader === 'Dashboard' ? 6 : 2}>
+                <Grid key={subheader} item xs={6} md={6}>
                   <List disablePadding>
-                    <ListSubheader
-                      disableSticky
-                      disableGutters
-                      sx={{
-                        display: 'flex',
-                        lineHeight: 'unset',
-                        alignItems: 'center',
-                        color: 'text.primary',
-                        typography: 'overline'
-                      }}
-                    >
-                      <IconBullet type="subheader" /> {subheader}
-                    </ListSubheader>
-
                     {items.map((item) => (
                       <ListItemStyle
                         key={item.title}
@@ -160,24 +146,8 @@ function MenuDesktopItem({ item, isOpen, isOffset, onOpen, onClose }) {
                           }
                         }}
                       >
-                        {item.title === 'Dashboard' ? (
-                          <CardActionArea
-                            sx={{
-                              py: 5,
-                              px: 10,
-                              borderRadius: 2,
-                              color: 'primary.main',
-                              bgcolor: 'background.neutral'
-                            }}
-                          >
-                            <Box src="/static/illustrations/illustration_dashboard.png" />
-                          </CardActionArea>
-                        ) : (
-                          <>
-                            <IconBullet />
-                            {item.title}
-                          </>
-                        )}
+                        <IconBullet />
+                        {item.title}
                       </ListItemStyle>
                     ))}
                   </List>
@@ -185,7 +155,7 @@ function MenuDesktopItem({ item, isOpen, isOffset, onOpen, onClose }) {
               );
             })}
           </Grid>
-        </Popover> */}
+        </Popover>
       </>
     );
   }

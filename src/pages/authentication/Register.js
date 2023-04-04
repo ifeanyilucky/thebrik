@@ -122,7 +122,7 @@ export default function Register() {
               Let’s get you started. Create an account to begin
             </Typography>
           </Box>
-          <TabsUnstyled defaultValue={0}>
+          {/* <TabsUnstyled defaultValue={0}>
             <TabsList>
               <Tab>Renter</Tab>
               <Tab>Agent</Tab>
@@ -133,7 +133,8 @@ export default function Register() {
             <TabPanel value={1}>
               <RegisterFormAgent />
             </TabPanel>
-          </TabsUnstyled>
+          </TabsUnstyled> */}
+          <RegisterFormStudent />
           <Typography variant="body2" align="center" sx={{ color: 'text.secondary', mt: 3 }}>
             By creating an account, you agree to our &nbsp;
             <Link

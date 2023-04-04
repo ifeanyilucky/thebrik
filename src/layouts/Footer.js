@@ -28,6 +28,30 @@ function Footer() {
       icon: instagram
     }
   ];
+  const footerConfig = [
+    {
+      title: 'Why Thebrik',
+      items: [
+        { title: 'Find your hostel', path: PATH_PAGE.hostels },
+        { title: 'List your hostel', path: PATH_PAGE.listYourHostel },
+        { title: 'Get a room mate', path: PATH_PAGE.roommateRequest }
+      ]
+    },
+    {
+      title: 'Company',
+      items: [
+        { title: 'About', path: PATH_PAGE.about },
+        { title: 'FAQs', path: PATH_PAGE.faqs }
+      ]
+    },
+    {
+      title: 'Legal',
+      items: [
+        { title: 'Terms of use', path: PATH_PAGE.termsAndConditions },
+        { title: 'Privacy policy', path: PATH_PAGE.privacyPolicy }
+      ]
+    }
+  ];
   const date = new Date();
   const getYear = date.getFullYear();
   return (
@@ -56,56 +80,65 @@ function Footer() {
                   </a>
                 ))}
               </Stack>
-              <Typography variant="body2">thebrik.co@gmail.com</Typography>
-              <Link href="tel:2348131271411" underline="hover">
-                (+234) 813 127 1411
+              <Link
+                variant="body2"
+                href={`tel:${config.email.support}`}
+                color="#fff"
+                underline="hover"
+              >
+                {config.email.support}
+              </Link>
+              <br />
+              <Link
+                variant="body2"
+                href={`tel:${config.tel.support}`}
+                color="#fff"
+                underline="hover"
+              >
+                {config.tel.support}
               </Link>
               {/* <img src="/images/Thebrik.png" width="140" alt="Thebrik-logo" /> */}
             </Grid>
 
             {/* COLUMN 2 */}
             <Grid item xs={6} sm={6} md={3}>
-              <Typography variant="subtitle1" sx={{ pb: 2 }}>
-                COMPANY
+              <Typography variant="subtitle1" sx={{ pb: 2, textTransform: 'uppercase' }}>
+                {footerConfig[0].title}
               </Typography>
-              <Typography variant="body2" sx={{ pb: 1 }}>
-                <Link to={PATH_PAGE.about} component={RouterLink} color="inherit" underline="hover">
-                  About
-                </Link>
+              {footerConfig[0].items.map((item, index) => (
+                <Typography variant="body2" sx={{ pb: 1 }} key={index}>
+                  <Link to={item.path} component={RouterLink} color="inherit" underline="hover">
+                    {item.title}
+                  </Link>
+                </Typography>
+              ))}
+            </Grid>
+            {/* COLUMN 3 */}
+            <Grid item xs={6} sm={6} md={3}>
+              <Typography variant="subtitle1" sx={{ pb: 2, textTransform: 'uppercase' }}>
+                {footerConfig[1].title}
               </Typography>
-              <Typography variant="body2" sx={{ pb: 1 }}>
-                <Link
-                  to={PATH_PAGE.becomeAgent}
-                  component={RouterLink}
-                  color="inherit"
-                  underline="hover"
-                >
-                  Become an agent
-                </Link>
-              </Typography>
-
-              <Typography variant="body2">
-                <Link to={PATH_PAGE.faqs} component={RouterLink} color="inherit" underline="hover">
-                  FAQs
-                </Link>
-              </Typography>
+              {footerConfig[1].items.map((item, index) => (
+                <Typography variant="body2" sx={{ pb: 1 }} key={index}>
+                  <Link to={item.path} component={RouterLink} color="inherit" underline="hover">
+                    {item.title}
+                  </Link>
+                </Typography>
+              ))}
             </Grid>
 
             {/* COLUMN 4 */}
             <Grid item xs={6} sm={6} md={3}>
-              <Typography variant="subtitle1" sx={{ pb: 2 }}>
-                LEGAL
+              <Typography variant="subtitle1" sx={{ pb: 2, textTransform: 'uppercase' }}>
+                {footerConfig[2].title}
               </Typography>
-              <Typography variant="body2" sx={{ pb: 1 }}>
-                <Link to={PATH_PAGE} component={RouterLink} color="inherit" underline="hover">
-                  Privacy and Policy
-                </Link>
-              </Typography>
-              <Typography variant="body2" sx={{ pb: 1 }}>
-                <Link to={PATH_PAGE} component={RouterLink} color="inherit" underline="hover">
-                  Terms & Conditions
-                </Link>
-              </Typography>
+              {footerConfig[2].items.map((item, index) => (
+                <Typography variant="body2" sx={{ pb: 1 }} key={index}>
+                  <Link to={item.path} component={RouterLink} color="inherit" underline="hover">
+                    {item.title}
+                  </Link>
+                </Typography>
+              ))}
             </Grid>
           </Grid>
         </Container>
@@ -114,9 +147,13 @@ function Footer() {
   );
 }
 const FooterStyle = styled.section`
+  background-color: #000;
+  margin-top: 5rem;
+  margin-bottom: 0;
+  width: 100%;
+  color: #fff;
   .get__started {
     background-color: rgba(247, 249, 253, 1);
-
     .border__dashed {
       border-style: dashed;
       border-top: none;

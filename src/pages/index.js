@@ -5,12 +5,14 @@ export { default as WorkWithUs } from './WorkWithUs';
 export { default as Contact } from './Contact';
 export { default as Login } from './authentication/Login';
 export { default as Hostels } from './Hostels';
+export { default as ManualPayment } from './payment';
 export { default as Register } from './authentication/Register';
 export { default as SendRequest } from './send-request';
 export { default as PrivacyPolicy } from './privacy-policy';
 export { default as PasswordResetSuccess } from './authentication/password-reset-success';
 export { default as TermsAndConditions } from './terms-and-condition';
 export { default as NotFound } from './dashboard/Page404';
+export { default as ListYourHostel } from './ListYourProperty';
 
 // AUTH
 export { default as ForgotPassword } from './authentication/forgot-password';

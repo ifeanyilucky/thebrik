@@ -41,13 +41,14 @@ export default function RegisterFormStudent() {
       lastName: '',
       email: '',
       tel: '',
-      password: ''
+      password: '',
+      referrerId: ''
     },
     validationSchema: RegisterSchema,
     onSubmit: async (values, { setSubmitting, setErrors }) => {
       setSubmitting(true);
       try {
-        const response = await register(values);
+        await register(values);
         setSubmitting(false);
       } catch (error) {
         setErrors({ afterSubmit: error.response.data.msg });
@@ -99,7 +100,15 @@ export default function RegisterFormStudent() {
             error={Boolean(touched.tel && errors.tel)}
             helperText={touched.tel && errors.tel}
           />
-
+          <TextField
+            fullWidth
+            autoComplete="tel"
+            type="tel"
+            label="Referrer code"
+            {...getFieldProps('referrerId')}
+            error={Boolean(touched.tel && errors.tel)}
+            helperText={touched.tel && errors.tel}
+          />
           <TextField
             fullWidth
             autoComplete="current-password"

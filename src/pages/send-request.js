@@ -48,7 +48,7 @@ function SendRequest() {
   const { getFieldProps, isSubmitting, handleSubmit } = formik;
 
   return (
-    <Page title="Send hostel request">
+    <Page title="Special request">
       <Container maxWidth="md">
         <Box sx={{ textAlign: 'center', py: 6 }}>
           <Typography variant="h2" marginBottom={3}>

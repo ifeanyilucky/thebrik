@@ -76,7 +76,6 @@ function MenuMobileItem({ item, isOpen, onOpen }) {
                   backgroundPosition: 'center',
                   bgcolor: 'background.neutral',
                   backgroundRepeat: 'no-repeat',
-                  backgroundImage: 'url(/static/illustrations/illustration_dashboard.png)',
                   '& > *:not(.MuiTouchRipple-root)': { display: 'none' }
                 },
                 '& .MuiListSubheader-root': {
@@ -114,15 +113,6 @@ function MenuMobileItem({ item, isOpen, onOpen }) {
       </>
     );
   }
-
-  // if (title === 'Documentation') {
-  //   return (
-  //     <ListItemStyle href={path} target="_blank" component={Link}>
-  //       <ListItemIcon>{icon}</ListItemIcon>
-  //       <ListItemText disableTypography primary={title} />
-  //     </ListItemStyle>
-  //   );
-  // }
 
   return (
     <ListItemStyle

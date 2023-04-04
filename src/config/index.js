@@ -10,7 +10,13 @@ export const config = {
     admin: 'admin@Thebrik.co',
     support: 'thebrik.co@gmail.com'
   },
+  bank: {
+    bankName: 'Stanbic IBTC',
+    accountNumber: '0032980005',
+    accountName: 'Thebrik Nigeria Limited'
+  },
   tel: {
+    support: '09138770915',
     support1: '2348131271411',
     support2: '09071499826'
   },

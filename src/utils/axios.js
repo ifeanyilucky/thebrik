@@ -48,6 +48,7 @@ export const fetchAgentInspections = () => API.get('/bookings/agent');
 export const createBooking = (values) => API.post('/bookings', values);
 export const fetchBooking = () => API.get('/bookings');
 export const makePayment = (values) => API.post('/payment', values);
+export const makeManualPayment = (values) => API.post('/payment/manual', values);
 export const fetchPayment = () => API.get('/payment');
 
 // PAYMENTS
@@ -64,5 +65,6 @@ export const validateBankAccount = (accountNumber, bankCode) =>
 
 // STATIC
 export const specialRequest = (values) => API.post('/static/special-request', values);
+export const roommateRequest = (values) => API.post('/static/roommate-request', values);
 
 export default API;

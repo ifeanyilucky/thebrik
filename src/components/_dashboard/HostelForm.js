@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import PropTypes from 'prop-types';
@@ -28,7 +28,7 @@ import {
 import { UploadMultiFile } from '../upload';
 // utils
 import axios from '../../utils/axios';
-import { fCurrency } from '../../utils/formatNumber';
+// import { fCurrency } from '../../utils/formatNumber';
 import { PATH_AGENT } from '../../routes/paths';
 
 // ----------------------------------------------------------------------
@@ -81,7 +81,7 @@ export default function HostelForm({ isEdit, currentHostel }) {
     getValues,
     reset,
     control,
-    formState: { isSubmitting, touchedFields, errors, isDirty, isValid, dirtyFields }
+    formState: { errors }
   } = useForm({
     defaultValues: {
       name: currentHostel?.name || '',

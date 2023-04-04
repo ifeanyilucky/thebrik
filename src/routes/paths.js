@@ -31,7 +31,9 @@ export const PATH_PAGE = {
   page404: '/404',
   page500: '/500',
   becomeAgent: '/become-an-agent',
-  specialRequest: '/special-request'
+  listYourHostel: '/list-your-hostel',
+  specialRequest: '/special-request',
+  roommateRequest: '/roommate-request'
 };
 
 export const PATH_DASHBOARD = {
@@ -44,7 +46,8 @@ export const PATH_DASHBOARD = {
   roommateRequest: path(ROOTS_DASHBOARD, '/room-mate-request'),
   saved: path(ROOTS_DASHBOARD, '/saved'),
   invoice: path(ROOTS_DASHBOARD, '/invoice'),
-  paymentHistory: path(ROOTS_DASHBOARD, '/payment-history')
+  paymentHistory: path(ROOTS_DASHBOARD, '/payment-history'),
+  referral: path(ROOTS_DASHBOARD, '/referral')
 };
 export const PATH_AGENT = {
   root: ROOTS_AGENT,

@@ -1,5 +1,5 @@
 // routes
-import { PATH_AUTH, PATH_PAGE, PATH_DASHBOARD } from '../../routes/paths';
+import { PATH_PAGE } from '../../routes/paths';
 
 // ----------------------------------------------------------------------
 
@@ -13,8 +13,21 @@ const menuConfig = [
     path: PATH_PAGE.hostels
   },
   {
-    title: 'Become an agent',
-    path: PATH_PAGE.becomeAgent
+    title: 'Request',
+    path: '#',
+    children: [
+      {
+        subheader: 'Request',
+        items: [
+          { title: 'Special Request', path: PATH_PAGE.specialRequest },
+          { title: 'Roommate Request', path: PATH_PAGE.roommateRequest }
+        ]
+      }
+    ]
+  },
+  {
+    title: 'List your hostel',
+    path: PATH_PAGE.listYourHostel
   },
 
   {

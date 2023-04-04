@@ -28,16 +28,16 @@ const sidebarConfig = [
   },
 
   {
-    title: 'Request roommate',
-    path: PATH_DASHBOARD.roommateRequest,
-    icon: getIcon('typcn:user-add')
-  },
-
-  {
     title: 'Payment',
     path: PATH_DASHBOARD.paymentHistory,
     icon: getIcon('fluent:payment-16-filled')
   },
+  {
+    title: 'Referral',
+    path: PATH_DASHBOARD.referral,
+    icon: getIcon('typcn:user-add')
+  },
+
   {
     title: 'Account',
     path: PATH_DASHBOARD.account,

@@ -121,7 +121,6 @@ export default function UploadMultiFile({
           <Typography gutterBottom variant="h5">
             Drop or Select file
           </Typography>
-
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
             Drop files here or click&nbsp;
             <Typography

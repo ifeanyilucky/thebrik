@@ -103,7 +103,7 @@ export default function LandingTestimonial() {
         alignItems="center"
         justifyContent="space-between"
         sx={{
-          backgroundColor: '#111827',
+          backgroundColor: '#000',
           color: 'white',
           backgroundImage: 'url(/static/images/bg.png))'
         }}
