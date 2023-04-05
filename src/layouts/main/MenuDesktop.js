@@ -39,6 +39,7 @@ const ListItemStyle = styled(ListItem)(({ theme }) => ({
   padding: 0,
   marginTop: theme.spacing(3),
   color: theme.palette.text.secondary,
+  listStyleType: 'none',
   transition: theme.transitions.create('color'),
   '&:hover': {
     color: theme.palette.text.primary
@@ -115,23 +116,23 @@ function MenuDesktopItem({ item, isOpen, isOffset, onOpen, onClose }) {
           PaperProps={{
             sx: {
               px: 3,
-              pt: 5,
+              pt: 1,
               pb: 3,
-              right: 16,
+              right: 6,
               m: 'auto',
               borderRadius: 2,
-              maxWidth: (theme) => theme.breakpoints.values.lg,
-              boxShadow: (theme) => theme.customShadows.z24
+              maxWidth: '240px',
+              boxShadow: '0 0 5px 5px rgba(34, 34, 34, 0.02)'
             }
           }}
         >
-          <Grid container spacing={3}>
+          <Grid container direction={'column'} spacing={3}>
             {children.map((list) => {
               const { subheader, items } = list;
 
               return (
                 <Grid key={subheader} item xs={6} md={6}>
-                  <List disablePadding>
+                  <List disablePadding sx={{ listStyleType: 'none' }}>
                     {items.map((item) => (
                       <ListItemStyle
                         key={item.title}
@@ -146,7 +147,6 @@ function MenuDesktopItem({ item, isOpen, isOffset, onOpen, onClose }) {
                           }
                         }}
                       >
-                        <IconBullet />
                         {item.title}
                       </ListItemStyle>
                     ))}
@@ -157,20 +157,6 @@ function MenuDesktopItem({ item, isOpen, isOffset, onOpen, onClose }) {
           </Grid>
         </Popover>
       </>
-    );
-  }
-
-  if (title === 'Documentation') {
-    return (
-      <LinkStyle
-        href="/"
-        target="_blank"
-        sx={{
-          ...(isOffset && { color: 'text.primary' })
-        }}
-      >
-        {title}
-      </LinkStyle>
     );
   }
 

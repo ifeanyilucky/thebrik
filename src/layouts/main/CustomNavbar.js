@@ -1,74 +1,47 @@
 import styled from 'styled-components';
-import { Box } from '@mui/material';
+import { Box, Link, Container } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import Logo from '../../components/Logo';
 import Label from '../../components/Label';
+import menuConfig from './MenuConfig';
 
 export default function CustomNavbar() {
   return (
     <Wrapper>
-      <section className="navigation">
-        <div className="nav-container">
-          <div className="brand">
-            <RouterLink to="/">
-              <Logo />
-            </RouterLink>
-            <Label color="info" sx={{ ml: 1 }}>
-              .co
-            </Label>
-            <Box sx={{ flexGrow: 1 }} />
-          </div>
-          <nav>
-            <div className="nav-mobile">
-              <a id="nav-toggle" href="#!">
-                <span />
-              </a>
-            </div>
-            <ul className="nav-list">
-              <li>
-                <a href="#!">Home</a>
-              </li>
-              <li>
-                <a href="#!">About</a>
-              </li>
-              <li>
-                <a href="#!">Services</a>
-                <ul className="nav-dropdown">
-                  <li>
-                    <a href="#!">Web Design</a>
-                  </li>
-                  <li>
-                    <a href="#!">Web Development</a>
-                  </li>
-                  <li>
-                    <a href="#!">Graphic Design</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#!">Pricing</a>
-              </li>
-              <li>
-                <a href="#!">Portfolio</a>
-                <ul className="nav-dropdown">
-                  <li>
-                    <a href="#!">Web Design</a>
-                  </li>
-                  <li>
-                    <a href="#!">Web Development</a>
-                  </li>
-                  <li>
-                    <a href="#!">Graphic Design</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#!">Contact</a>
-              </li>
-            </ul>
-          </nav>
+      <Container maxWidth="lg">
+        <div className="brand">
+          <RouterLink to="/">
+            <Logo />
+          </RouterLink>
+          <Label color="info" sx={{ ml: 1 }}>
+            .co
+          </Label>
         </div>
-      </section>
+        <nav>
+          <div className="nav-mobile">
+            <a id="nav-toggle" href="#!">
+              <span />
+            </a>
+          </div>
+          <ul className="nav-list">
+            {menuConfig.map((navitem, index) => (
+              <li key={index}>
+                <Link component={RouterLink} to={navitem.path}>
+                  {navitem.title}
+                </Link>
+                <ul className="nav-dropdown">
+                  {navitem.children &&
+                    navitem.children.map((item, i) => (
+                      <li key={i}>
+                        <a href="#!">Web Design</a>
+                      </li>
+                    ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </Container>
     </Wrapper>
   );
 }
@@ -92,7 +65,6 @@ const Wrapper = styled.div`
     font-size: 1.4em;
     a,
     a:visited {
-      color: #fff;
       text-decoration: none;
     }
   }
@@ -118,16 +90,11 @@ const Wrapper = styled.div`
           display: block;
           padding: 0 20px;
           line-height: 70px;
-          background: #262626;
-          color: #fff;
+
           text-decoration: none;
           &:hover {
             background: #2581dc;
             color: #fff;
-          }
-          &:not(:only-child):after {
-            padding-left: 4px;
-            content: ' ▾';
           }
         } // Dropdown list
         ul li {
@@ -230,12 +197,5 @@ const Wrapper = styled.div`
         transform: rotate(-45deg);
       }
     }
-  }
-
-  // Page content
-  article {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 10px;
   }
 `;
