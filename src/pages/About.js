@@ -1,11 +1,41 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { Typography, Container, Stack, Grid, Box } from '@mui/material';
+import { Typography, Container, Stack, Grid, Box, Button } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 import Page from '../components/Page';
+import { PATH_PAGE } from '../routes/paths';
+import Iconify from '../components/Iconify';
 
 const RootStyle = styled('div')(({ theme }) => ({
   padding: theme.spacing(10, 0)
 }));
+
+const whyItems = [
+  {
+    title: 'Swift rental process',
+    icon: 'bi:house-check-fill'
+  },
+  {
+    title: 'Free inspection',
+    icon: 'heroicons:calendar-days-20-solid'
+  },
+  {
+    title: 'Best-market pricing',
+    icon: 'icon-park-solid:market-analysis'
+  },
+  {
+    title: 'Maximum security',
+    icon: 'material-symbols:security'
+  },
+  {
+    title: 'Flexible payment',
+    icon: 'bi:credit-card'
+  },
+  {
+    title: 'No extra charges',
+    icon: 'mdi:eye-off-outline'
+  }
+];
 
 function About() {
   return (
@@ -55,7 +85,7 @@ function About() {
                   <Typography variant="overline" sx={{ color: 'primary.main' }}>
                     About us
                   </Typography>
-                  <Typography variant="h4">
+                  <Typography variant="body1">
                     Thebrik was founded for one simple reason: To help students secure their off
                     campus hostel and a perfect place to live. We understand the challenges and the
                     excitement of looking for a new hostel—and we make it as easy and safe as
@@ -94,8 +124,66 @@ function About() {
           </Container>
         </RootStyle>
 
-        <RootStyle>
-          <Container maxWidth="sm">
+        <RootStyle style={{ backgroundColor: '#000' }}>
+          <Container>
+            <Grid
+              container
+              spacing={{ md: 8, xs: 2 }}
+              justifyContent="space-between"
+              verticalAlign="middle"
+            >
+              <Grid item md={5}>
+                <Typography variant="overline" color="#fff">
+                  Why Thebrik
+                </Typography>
+                <Typography variant="h1" color="#fff">
+                  We're here for you
+                </Typography>
+                <Typography sx={{ my: 2 }} variant="body1" color="#fff">
+                  We are building the most convenient way for the modern day Nigeria students to get
+                  a hostel. Our customers are at the center of everything we do, and we are obsessed
+                  with creating a pleasant experience throughout their entire crypto journey.
+                </Typography>
+                <Box mt={5}>
+                  <RouterLink to={PATH_PAGE.hostels}>
+                    <Button variant="contained" color="secondary" size="large">
+                      Get started
+                    </Button>
+                  </RouterLink>
+                </Box>
+              </Grid>
+              <Grid item md={7}>
+                <Grid container spacing={5}>
+                  {whyItems.map((item) => (
+                    <Grid md={6} sm={6} xs={6} item key={item.title}>
+                      <Stack spacing={2}>
+                        <Box
+                          sx={{
+                            bgcolor: '#135bfd',
+                            color: '#fff',
+                            width: '50px',
+                            height: '50px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            borderRadius: '18px',
+                            justifyContent: 'center'
+                          }}
+                        >
+                          <Iconify sx={{ color: '#fff' }} fontSize="20px" color icon={item.icon} />
+                        </Box>
+                        <Typography variant="body1" color="#fff">
+                          {item.title}
+                        </Typography>
+                      </Stack>
+                    </Grid>
+                  ))}
+                </Grid>
+              </Grid>
+            </Grid>
+          </Container>
+        </RootStyle>
+        <RootStyle style={{ marginTop: '3rem' }}>
+          <Container maxWidth="sm" my={5}>
             <Box sx={{ textAlign: 'center' }}>
               <Stack spacing={2} paddingBottom={10}>
                 {/* <Typography

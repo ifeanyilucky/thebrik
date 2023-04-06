@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import {
   Container,
   Typography,
@@ -13,8 +13,9 @@ import {
 import { LoadingButton } from '@mui/lab';
 import { styled } from '@mui/styles';
 import { useFormik, Form, FormikProvider } from 'formik';
+import toast from 'react-hot-toast';
+import { useForm, Controller } from 'react-hook-form';
 import Page from '../components/Page';
-import { UploadSingleFile } from '../components/upload';
 import { useDispatch, useSelector } from '../redux/store';
 import * as api from '../utils/axios';
 import { getHostel } from '../redux/slices/hostels';
@@ -47,47 +48,45 @@ const SkeletonLoad = (
 export default function ManualPayment() {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const [receiptUrl, setReceiptUrl] = useState('');
+  const [isSubmitting, setSubmitting] = useState(false);
+  const { state } = useLocation();
   const { bank } = config;
   useEffect(() => {
     dispatch(getHostel(id));
   }, [id]);
   const { hostel, isLoading } = useSelector((state) => state.hostel);
-
-  const formik = useFormik({
-    initialValues: {
+  // --- React hook form implementation
+  const { register, setValue, handleSubmit, getValues } = useForm({
+    defaultValues: {
       amount: '',
       receipt: '',
       transactionId: '',
-      nameOfDepositor: ''
-    },
-    onSubmit: async (values, { setSubmitting }) => {
-      console.log(values);
-      const formData = new FormData();
-      formData.append('file', values.receipt);
-      formData.append('values', JSON.stringify(values));
-      await api
-        .makeManualPayment(formData)
-        .then((res) => {
-          console.log(res);
-          setSubmitting(false);
-        })
-        .catch((error) => {
-          console.log(error);
-          setSubmitting(false);
-        });
+      nameOfDepositor: '',
+      hostel
     }
   });
 
-  const { handleSubmit, getFieldProps, errors, setFieldValue, values, isSubmitting } = formik;
-  const handleDropSingleFile = useCallback((acceptedFiles) => {
-    const file = acceptedFiles[0];
-    if (file) {
-      setFieldValue('receipt', {
-        ...file,
-        preview: URL.createObjectURL(file)
+  const onSubmit = async (values) => {
+    setSubmitting(true);
+    console.log(values);
+    const formData = new FormData();
+    formData.append('receipt', values.receipt);
+    formData.append('values', JSON.stringify({ ...values, method: state.method }));
+
+    await api
+      .makeManualPayment(formData)
+      .then((res) => {
+        console.log(res);
+        setSubmitting(false);
+        toast.success('Payment submitted successfully');
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error('Failed to submit payment');
+        setSubmitting(false);
       });
-    }
-  }, []);
+  };
 
   return (
     <Page title={'Payment'}>
@@ -142,60 +141,71 @@ export default function ManualPayment() {
                   </Stack>
                 </CardContent>
               </Card>
-              <FormikProvider value={formik}>
-                <Form onSubmit={handleSubmit} encType="multipart/form-data">
-                  <Card>
-                    <CardContent>
-                      <LabelStyle>
-                        Upload payment slip/teller/receipt (JPG or PNG format)
-                      </LabelStyle>
-                      <UploadSingleFile
-                        accept="image/*"
-                        file={values.receipt}
-                        onDrop={handleDropSingleFile}
-                      />
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardContent>
-                      <Stack spacing={3}>
-                        <Stack spacing={1}>
-                          <LabelStyle>Amount</LabelStyle>
-                          <TextField
-                            label="Enter the amount you paid for"
-                            {...getFieldProps('amount')}
-                            fullWidth
-                          />
-                        </Stack>
-                        <Stack spacing={1}>
-                          <LabelStyle>Name of depositor</LabelStyle>
-                          <TextField
-                            label="Enter name of depositor"
-                            {...getFieldProps('nameOfDepositor')}
-                            fullWidth
-                          />
-                        </Stack>
-                        <Stack spacing={1}>
-                          <LabelStyle>Transaction ID/Teller ID/Ref ID</LabelStyle>
-                          <TextField
-                            label="Enter your transaction ID or Ref ID"
-                            {...getFieldProps('transactionId')}
-                            fullWidth
-                          />
-                        </Stack>
-                        <LoadingButton
-                          loading={isSubmitting}
-                          type="submit"
-                          variant="contained"
-                          size="large"
-                        >
-                          Submit
-                        </LoadingButton>
+              <form
+                noValidate
+                autoComplete="off"
+                onSubmit={handleSubmit(onSubmit)}
+                encType="multipart/form-data"
+              >
+                <Card>
+                  <CardContent>
+                    <LabelStyle>Upload payment slip/teller/receipt (JPG or PNG format)</LabelStyle>
+                    <input
+                      type="file"
+                      multiple={false}
+                      onChange={(e) => {
+                        setValue('receipt', e.target.files[0]);
+                        // setProfilePicUrl(URL.createObjectURL(e.target.files[0]));
+                      }}
+                      accept="image/*"
+                      className="upload"
+                    />
+                    {/* <UploadSingleFile
+                      accept="image/*"
+                      file={selectedFile}
+                      onDrop={handleDropSingleFile}
+                    /> */}
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent>
+                    <Stack spacing={3}>
+                      <Stack spacing={1}>
+                        <LabelStyle>Amount</LabelStyle>
+                        <TextField
+                          label="Enter the amount you paid for"
+                          {...register('amount')}
+                          fullWidth
+                        />
                       </Stack>
-                    </CardContent>
-                  </Card>
-                </Form>
-              </FormikProvider>
+                      <Stack spacing={1}>
+                        <LabelStyle>Name of depositor</LabelStyle>
+                        <TextField
+                          label="Enter name of depositor"
+                          {...register('nameOfDepositor')}
+                          fullWidth
+                        />
+                      </Stack>
+                      <Stack spacing={1}>
+                        <LabelStyle>Transaction ID/Teller ID/Ref ID</LabelStyle>
+                        <TextField
+                          label="Enter your transaction ID or Ref ID"
+                          {...register('transactionId')}
+                          fullWidth
+                        />
+                      </Stack>
+                      <LoadingButton
+                        loading={isSubmitting}
+                        type="submit"
+                        variant="contained"
+                        size="large"
+                      >
+                        Submit
+                      </LoadingButton>
+                    </Stack>
+                  </CardContent>
+                </Card>
+              </form>
             </Grid>
           </Grid>
         </Container>

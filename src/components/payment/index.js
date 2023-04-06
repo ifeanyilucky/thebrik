@@ -113,7 +113,9 @@ export const SelectPaymentMethod = ({
       initializeCardPayment(onPaymentSuccess, onPaymentClose);
     } else if (selectedMethod === 'transfer' || selectedMethod === 'deposit') {
       // Navigate user to use the payment form
-      navigate(`${PATH_PAGE.hostels}/${hostel?.slug}/payment`, { state: { hostel } });
+      navigate(`${PATH_PAGE.hostels}/${hostel?.slug}/payment`, {
+        state: { hostel, method: selectedMethod }
+      });
     }
   };
 
