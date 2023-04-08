@@ -88,7 +88,7 @@ export default function InspectionBooking({ user, hostel }) {
                 label="Type of inspection"
                 onChange={(e) => setFieldValue('type', e.target.value)}
                 select
-                value={values.inspection_type}
+                value={values.type}
                 disabled={!user && true}
                 required
               >

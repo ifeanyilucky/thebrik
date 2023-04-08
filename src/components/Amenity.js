@@ -50,15 +50,16 @@ export default function Amenity({ amenities }) {
             </Stack>
           </Grid>
         )}
-
-        <Grid item md={4} sm={6} xs={6} sx={{ width: '100%' }}>
-          <Stack spacing={1.2}>
-            <Iconify icon={amenitiesIcon.fence} sx={{ width: '40px', height: '40px' }} />
-            <Typography variant="body1" color="text.primary" sx={{ width: 'auto' }}>
-              Fenced with gate
-            </Typography>
-          </Stack>
-        </Grid>
+        {amenities.parking === true && (
+          <Grid item md={4} sm={6} xs={6} sx={{ width: '100%' }}>
+            <Stack spacing={1.2}>
+              <Iconify icon={amenitiesIcon.fence} sx={{ width: '40px', height: '40px' }} />
+              <Typography variant="body1" color="text.primary" sx={{ width: 'auto' }}>
+                Fenced with gate
+              </Typography>
+            </Stack>
+          </Grid>
+        )}
         {amenities.parking === true && (
           <Grid item md={4} sm={6} xs={6} sx={{ width: '100%' }}>
             <Stack spacing={1.2}>

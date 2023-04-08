@@ -141,8 +141,8 @@ function About() {
                 </Typography>
                 <Typography sx={{ my: 2 }} variant="body1" color="#fff">
                   We are building the most convenient way for the modern day Nigeria students to get
-                  a hostel. Our customers are at the center of everything we do, and we are obsessed
-                  with creating a pleasant experience throughout their entire crypto journey.
+                  their suitable hostel. Our customers are at the center of everything we do, and we
+                  are obsessed with creating a pleasant experience throughout their entire journey.
                 </Typography>
                 <Box mt={5}>
                   <RouterLink to={PATH_PAGE.hostels}>
@@ -192,7 +192,7 @@ function About() {
                   >
                     OUR MISSION
                   </Typography> */}
-                <Typography variant="h3">Our mission</Typography>
+                <Typography variant="h2">Our mission</Typography>
                 <Typography variant="body1">
                   To be the first choice for student accommodation, where student can rent their
                   ideal hostel through a tech-enabled, simple & trustworthy platform that handles

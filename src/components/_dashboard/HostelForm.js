@@ -105,7 +105,8 @@ export default function HostelForm({ isEdit, currentHostel }) {
         electricity: currentHostel?.amenities?.electricity || false,
         runningWater: currentHostel?.amenities?.runningWater || false,
         tiles: currentHostel?.amenities?.tiles || false,
-        parking: currentHostel?.amenities?.parking || false
+        parking: currentHostel?.amenities?.parking || false,
+        fencedWithGate: currentHostel?.amenities?.fencedWithGate || false
       }
     },
     resolver: yupResolver(propertySchema)
@@ -320,6 +321,26 @@ export default function HostelForm({ isEdit, currentHostel }) {
                                     />
                                   }
                                   label="Parking space"
+                                />
+                              )}
+                            />
+                          </Box>
+                          <Box width={300}>
+                            <Controller
+                              name="amenities.fencedWithGate"
+                              control={control}
+                              render={({ field }) => (
+                                <FormControlLabel
+                                  control={
+                                    <Checkbox
+                                      defaultValue={amenities.fencedWithGate}
+                                      defaultChecked={amenities.fencedWithGate}
+                                      color="primary"
+                                      onChange={(e) => field.onChange(e.target.checked)}
+                                      checked={field.value}
+                                    />
+                                  }
+                                  label="Fenced with gate"
                                 />
                               )}
                             />

@@ -42,7 +42,7 @@ export const commonQuestions = [
   },
   {
     question: `I've been asked to make a payment outside of Thebrik, what should I do?`,
-    answer: `We strongly recommend that you do not make any payments outside Thebrik. The safest way to secure a room payment is to make payments through the secured payment gateway on the website.`,
+    answer: `We strongly recommend that you do not make any payments outside Thebrik. The safest way to secure a hostel payment is to make payments through the secured payment gateway on the website.`,
     panel: 345
   },
   {
@@ -65,8 +65,8 @@ export const commonQuestions = [
     question: `Can't find my preferred payment option, what should I do?`,
     answer: `
     We're sorry to hear that you're having trouble paying for your hostel. 
-    Thebrik offers over 5 different payment methods for the payment stage. You can securely make your payment using:
-Mastercard, Visa, Bank transfer, USSD, Bank account (direct debit); by Paystack.
+    Thebrik offers over 3 different payment methods for the payment stage. You can securely make your payment using:
+Card, Bank transfer, Direct deposit.
 
 If you are not able to use any of these methods to make your payment, please contact our support team to help you out immediately. 
     

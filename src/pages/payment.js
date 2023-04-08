@@ -59,7 +59,7 @@ export default function ManualPayment() {
   // --- React hook form implementation
   const { register, setValue, handleSubmit, getValues } = useForm({
     defaultValues: {
-      amount: '',
+      amount: hostel?.prices?.totalCost || '',
       receipt: '',
       transactionId: '',
       nameOfDepositor: '',

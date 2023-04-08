@@ -20,7 +20,7 @@ import * as api from '../../utils/axios';
 function SendRequest() {
   const formik = useFormik({
     initialValues: {
-      numberOfBed: '',
+      preferredApartment: '',
       minimumBudget: '',
       maximumBudget: '',
       location: '',
@@ -80,9 +80,11 @@ function SendRequest() {
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
                   <TextField
                     fullWidth
-                    label="Number of bedrooms"
-                    type="number"
-                    {...getFieldProps('numberOfBed')}
+                    label="Kind of preferred apartment"
+                    type="text"
+                    rows={6}
+                    multiline
+                    {...getFieldProps('preferredApartment')}
                   />
                 </Stack>
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>

@@ -1,4 +1,4 @@
-import { Container, Typography, Box, Grid, Stack } from '@mui/material';
+import { Container, Typography, Box, Grid, Stack, Button } from '@mui/material';
 import Iconify from '../components/Iconify';
 import Page from '../components/Page';
 
@@ -61,6 +61,18 @@ export default function ListYourProperty() {
             </Grid>
           ))}{' '}
         </Grid>
+        <Stack sx={{ marginY: 6 }}>
+          <Box sx={{ textAlign: 'center', maxWidth: '508px', margin: '0 auto' }}>
+            <Typography variant="h3">Ready to list your hostel now?</Typography>
+            <Typography variant="body1" sx={{ my: 1 }}>
+              Place a call or email us now to start earning quick rental income on your property
+              only on Thebrik
+            </Typography>
+            <Button variant="contained" size="large">
+              Get started
+            </Button>
+          </Box>
+        </Stack>
       </Container>
     </Page>
   );
