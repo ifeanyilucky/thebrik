@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import PropTypes from 'prop-types';
 import { useFormik, Form, FormikProvider } from 'formik';
-import { useSnackbar } from 'notistack';
+
 // material
 import { styled } from '@mui/material/styles';
 import { Button, Rating, TextField, Typography, FormHelperText, Stack } from '@mui/material';
@@ -25,8 +25,6 @@ ProductDetailsReviewForm.propTypes = {
 };
 
 export default function ProductDetailsReviewForm({ onClose, ...other }) {
-  const { enqueueSnackbar } = useSnackbar();
-
   const ReviewSchema = Yup.object().shape({
     rating: Yup.mixed().required('Rating is required'),
     review: Yup.string().required('Review is required'),
@@ -44,11 +42,10 @@ export default function ProductDetailsReviewForm({ onClose, ...other }) {
     validationSchema: ReviewSchema,
     onSubmit: async (values, { resetForm, setSubmitting }) => {
       // await fakeRequest(500);
-      alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify(values, null, 2));
       onClose();
       resetForm();
       setSubmitting(false);
-      enqueueSnackbar('Verify success', { variant: 'success' });
     }
   });
 

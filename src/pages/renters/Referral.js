@@ -8,11 +8,13 @@ export default function Referral() {
   const CardStyle = styled(Card)(({ theme }) => ({
     boxShadow: 'none',
     backgroundColor: '#fff',
+    width: '100%',
     [theme.breakpoints.up('md')]: {
       height: '100%'
     }
   }));
   const { user } = useAuth();
+  console.log(user);
   return (
     <Page title="Referral">
       <Container maxWidth="xl">
@@ -20,15 +22,15 @@ export default function Referral() {
           <Typography variant="h5">Referral</Typography>
         </Stack>
 
-        <Grid container spacing={4}>
-          <Grid item sm="12" md="8">
+        <Grid container spacing={4} sx={{ minWidth: '100%' }}>
+          <Grid item sm="12" md="8" sx={{ minWidth: '100%' }}>
             <CardStyle>
               <CardContent>
                 <Typography variant="subtitle1" sx={{ mb: 4 }}>
                   You referral stats
                 </Typography>
-                <Grid container spacing={2}>
-                  <Grid item md={5} sm={6} xs={12} height="100%">
+                <Grid container spacing={2} sx={{ width: '100%' }}>
+                  <Grid item md={5} sm={12} xs={12} height="100%" width="100%">
                     <Box
                       sx={{
                         border: '1px solid #f4f4f4',
@@ -44,7 +46,7 @@ export default function Referral() {
                       </Stack>
                     </Box>
                   </Grid>
-                  <Grid item md={7} sm={6} xs={12}>
+                  <Grid item md={7} sm={12} xs={12}>
                     <Box
                       sx={{ border: '1px solid #f4f4f4', height: '100%', borderRadius: '0.5rem' }}
                       py={2}
@@ -67,7 +69,7 @@ export default function Referral() {
               </CardContent>
             </CardStyle>
           </Grid>
-          <Grid item sm="12" md="4">
+          <Grid item sm="12" md="4" sx={{ minWidth: '100%' }}>
             <CardStyle>
               <CardContent sx={{ height: '100%' }}>
                 <Box

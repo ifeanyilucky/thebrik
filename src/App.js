@@ -9,7 +9,7 @@ import Router from './routes';
 import ThemeProvider from './theme';
 // components
 import ScrollToTop from './components/ScrollToTop';
-import LiveChat from './utils/LiveChat';
+// import LiveChat from './utils/LiveChat';
 
 import './index.css';
 import GlobalStyles from './theme/globalStyles';
@@ -33,7 +33,7 @@ export default function App() {
         </Backdrop>
       )}
 
-      <LiveChat />
+      {/* <LiveChat /> */}
     </ThemeProvider>
   );
 }

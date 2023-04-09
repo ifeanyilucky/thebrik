@@ -1,6 +1,5 @@
 import { Icon } from '@iconify/react';
 import googleFill from '@iconify/icons-eva/google-fill';
-import { GoogleLogin } from 'react-google-login';
 // material
 import { Stack, Button, Divider, Typography } from '@mui/material';
 import { useDispatch } from 'react-redux';
@@ -26,7 +25,7 @@ export default function AuthSocial() {
   return (
     <>
       <Stack direction="row" spacing={2}>
-        <GoogleLogin
+        {/* <GoogleLogin
           clientId="516147560128-qge1sas5sr5s650kmubi3mrhhhn82iur.apps.googleusercontent.com"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
@@ -43,7 +42,7 @@ export default function AuthSocial() {
               <Icon icon={googleFill} color="#DF3E30" height={24} />
             </Button>
           )}
-        />
+        /> */}
       </Stack>
 
       <Divider sx={{ my: 3 }}>

@@ -1,11 +1,9 @@
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import toast from 'react-hot-toast';
-// import { useSnackbar } from 'notistack';
 // material
-import { Box, Grid, Card, Button, Typography, Stack } from '@mui/material';
-import { useDispatch } from '../../../../redux/store';
+import { Grid, Stack } from '@mui/material';
 
 // redux
 import { useAuth } from '../../../../hooks/useAuth';
@@ -19,7 +17,6 @@ import AccountBillingInvoiceHistory from './AccountBillingInvoiceHistory';
 // ----------------------------------------------------------------------
 
 export default function AccountBilling() {
-  const dispatch = useDispatch();
   // eslint-disable-next-line
   const [toastMsg, setToastMsg] = useState('');
   const [open, setOpen] = useState(false);
@@ -41,7 +38,7 @@ export default function AccountBilling() {
       bankCode: user?.bankInfo?.bankCode || ''
     },
     validationSchema: NewCardSchema,
-    onSubmit: async (values, { setSubmitting, resetForm, setErrors }) => {
+    onSubmit: async (values, { setSubmitting, setErrors }) => {
       try {
         await updateProfile(values);
         if (isMountedRef.current) {

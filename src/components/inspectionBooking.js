@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import { Formik, Form } from 'formik';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import { parseISO } from 'date-fns';
 import { DateTimePicker, LocalizationProvider, LoadingButton } from '@mui/lab';
 import { useNavigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -19,6 +20,7 @@ import { PATH_AUTH } from '../routes/paths';
 import { createBooking } from '../redux/slices/renter';
 import PriceBreakdown from './payment/price-breakdown';
 import { useAnalyticEventTracker } from '../hooks/useAnalyticEventTracker';
+import { fDateTime } from '../utils/formatTime';
 
 InspectionBooking.propTypes = {
   user: PropTypes.object,
@@ -51,9 +53,6 @@ export default function InspectionBooking({ user, hostel }) {
     totalCost
   };
   const gaEventTracker = useAnalyticEventTracker('Booking');
-  // useEffect(()=> {
-  //   if()
-  // },[])
 
   if (isLoading) {
     return (
@@ -100,9 +99,13 @@ export default function InspectionBooking({ user, hostel }) {
                   <DateTimePicker
                     label="Select date and time"
                     value={values.date}
-                    onChange={(value) => setFieldValue('date', value)}
+                    onChange={
+                      (value) => setFieldValue('date', fDateTime(value))
+                      // value.setUTCHours(0, 0, 0, 0);
+                    }
                     renderInput={(params) => <TextField {...params} required />}
                     disabled={!user && true}
+                    views={['month', 'day', 'hours', 'minutes']}
                     reduceAnimations
                     clearable
                     disablePast

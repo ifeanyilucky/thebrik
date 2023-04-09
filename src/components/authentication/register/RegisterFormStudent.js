@@ -104,7 +104,7 @@ export default function RegisterFormStudent() {
             fullWidth
             autoComplete="tel"
             type="tel"
-            label="Referrer code"
+            label="Referrer code (optional)"
             {...getFieldProps('referrerId')}
             error={Boolean(touched.tel && errors.tel)}
             helperText={touched.tel && errors.tel}
