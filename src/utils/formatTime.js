@@ -27,7 +27,7 @@ export function fDateTime(date) {
 export function fDateTimeSuffix(date) {
   const dateTmp = Date.parse(date.toLocalString());
   const localDate = convertToLocalTime(dateTmp, { timeZone: timezone });
-  return format(new Date(date), 'dd/MM/yyyy hh:mm p');
+  return format(localDate, 'dd/MM/yyyy hh:mm p');
 }
 
 export function fToNow(date) {

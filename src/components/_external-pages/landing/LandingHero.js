@@ -1,26 +1,8 @@
-import React, { useState } from 'react';
-import { Icon } from '@iconify/react';
-import flashFill from '@iconify/icons-eva/flash-fill';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import React from 'react';
 // material
 import { styled } from '@mui/material/styles';
-import {
-  Button,
-  Container,
-  Typography,
-  Stack,
-  Grid,
-  AvatarGroup,
-  Avatar,
-  Box,
-  TextField,
-  InputAdornment
-} from '@mui/material';
+import { Container, Typography, Stack, Grid, Box } from '@mui/material';
 import LandingHeroImage from './LandingHeroImage';
-import Iconify from '../../Iconify';
-import { MHidden } from '../../@material-extend';
-// routes
-import { PATH_PAGE } from '../../../routes/paths';
 import HeroSearchbar from './HeroSearchbar';
 //
 
@@ -61,11 +43,6 @@ const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ them
 // ----------------------------------------------------------------------
 
 export default function LandingHero() {
-  const [location, setLocation] = useState('');
-  const navigate = useNavigate();
-  const searchHandler = (e) => {
-    if (location) navigate(`${PATH_PAGE.hostels}?location=${location}`);
-  };
   return (
     <>
       <RootStyle>

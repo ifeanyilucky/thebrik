@@ -9,6 +9,7 @@ const menuConfig = [
     path: PATH_PAGE.hostels
   },
 
+  { title: 'Special request', path: PATH_PAGE.specialRequest },
   { title: 'Get a roommate', path: PATH_PAGE.roommateRequest },
   {
     title: 'List your hostel',

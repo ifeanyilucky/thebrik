@@ -6,6 +6,10 @@ import * as api from '../../utils/axios';
 const initialState = {
   user: null,
   users: [],
+  referral: {
+    users: [],
+    bonus: 0
+  },
   bookings: [],
   payments: [],
   error: false,
@@ -38,6 +42,11 @@ const slice = createSlice({
     createBookingSuccess(state, action) {
       state.isLoading = false;
       state.bookings = [...state.bookings, action.payload];
+    },
+    getReferredUsersSuccess(state, action) {
+      state.referral.users = action.payload.users;
+      state.referral.bonus = action.payload.bonus;
+      state.isLoading = false;
     }
   }
 });
@@ -86,5 +95,15 @@ export const getPayments = () => async (dispatch) => {
     dispatch(slice.actions.getPaymentSuccess(data.payment));
   } catch (error) {
     dispatch(slice.actions.hasError(error));
+  }
+};
+
+export const getReferredUsers = () => async (dispatch) => {
+  dispatch(slice.actions.startLoading());
+  try {
+    const { data } = await api.fetchReferredUsers();
+    dispatch(slice.actions.getReferredUsersSuccess(data));
+  } catch (error) {
+    dispatch(slice.actions.hasError(error.response.data.msg));
   }
 };

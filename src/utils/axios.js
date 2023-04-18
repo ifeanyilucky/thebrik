@@ -50,6 +50,7 @@ export const fetchBooking = () => API.get('/bookings');
 export const makePayment = (values) => API.post('/payment', values);
 export const makeManualPayment = (values) => API.post('/payment/manual', values);
 export const fetchPayment = () => API.get('/payment');
+export const fetchReferredUsers = () => API.get('/referral');
 
 // PAYMENTS
 export const getBanks = () => API.get('/static/banks');

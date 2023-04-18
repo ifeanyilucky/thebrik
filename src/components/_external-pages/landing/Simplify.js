@@ -63,6 +63,7 @@ export default function Simplify() {
           </Grid>
         </Stack>
       </Container>
+
       <Marquee gradient={false}>
         <Stack direction="row" sx={{ justifyContent: 'center', alignItems: 'center' }}>
           {images.map((img, index) => (
@@ -70,9 +71,9 @@ export default function Simplify() {
               key={index}
               sx={{
                 mx: 2,
-                borderRadius: '18px',
+                borderRadius: '50px',
                 width: { md: '300px', xs: '150px' },
-                height: { md: '300px', xs: '150px' },
+                height: { md: '120px', xs: '150px' },
                 overflow: 'hidden'
               }}
             >
