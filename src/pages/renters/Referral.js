@@ -1,22 +1,10 @@
-import { useEffect } from 'react';
-import {
-  Container,
-  Typography,
-  Grid,
-  Stack,
-  Card,
-  CardContent,
-  Box,
-  Button,
-  CircularProgress,
-  Backdrop
-} from '@mui/material';
+import { useState } from 'react';
+import { Container, Typography, Grid, Stack, Card, CardContent, Box, Button } from '@mui/material';
 import { styled } from '@mui/styles';
 import Page from '../../components/Page';
 import { useAuth } from '../../hooks/useAuth';
 import { fCurrency, fNumber } from '../../utils/formatNumber';
-import { useDispatch, useSelector } from '../../redux/store';
-import { getReferredUsers } from '../../redux/slices/renter';
+import ReferralWithdrawalModal from '../../components/_dashboard/renter/referralWithdrawal';
 
 const CardStyle = styled(Card)(({ theme }) => ({
   boxShadow: 'none',
@@ -27,11 +15,7 @@ const CardStyle = styled(Card)(({ theme }) => ({
   }
 }));
 export default function Referral() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getReferredUsers());
-  }, []);
-  const { referral, isLoading } = useSelector((state) => state.user);
+  const [withdrawalOpen, setWithdrawalOpen] = useState(false);
 
   const { user } = useAuth();
 
@@ -42,55 +26,56 @@ export default function Referral() {
           <Typography variant="h5">Referral</Typography>
           <Typography variant="body2">Thebrik Referral Program.</Typography>
         </Stack>
+        {/* Referral commission withdrawal modal */}
+        <ReferralWithdrawalModal open={withdrawalOpen} onClose={() => setWithdrawalOpen(false)} />
 
         <Grid container spacing={4} sx={{ minWidth: '100%' }}>
           <Grid item sm="12" md="8" sx={{ minWidth: '100%' }}>
-            {isLoading ? (
-              <Backdrop open sx={{ zIndex: 9999 }}>
-                <CircularProgress />
-              </Backdrop>
-            ) : (
-              <CardStyle>
-                <CardContent>
-                  <Typography variant="subtitle1" sx={{ mb: 4 }}>
-                    You referral stats
-                  </Typography>
-                  <Grid container spacing={2} sx={{ width: '100%' }}>
-                    <Grid item md={5} sm={12} xs={12} height="100%" width="100%">
-                      <Box
-                        sx={{
-                          border: '1px solid #f4f4f4',
-                          minHeight: '100%',
-                          borderRadius: '0.5rem'
-                        }}
-                        py={2}
-                        px={2}
-                      >
-                        <Stack spacing={1.5}>
-                          <Typography variant="overline">Referred users</Typography>
-                          <Typography variant="h4">{fNumber(referral.users?.length)}</Typography>
-                        </Stack>
-                      </Box>
-                    </Grid>
-                    <Grid item md={7} sm={12} xs={12}>
-                      <Box
-                        sx={{ border: '1px solid #f4f4f4', height: '100%', borderRadius: '0.5rem' }}
-                        py={2}
-                        px={2}
-                      >
-                        <Stack spacing={1.5}>
-                          <Typography variant="overline">Referral bonus</Typography>
-                          <Typography variant="h4">{fCurrency(referral.bonus)}</Typography>
-                          <Box>
-                            <Button disabled={!(referral.bonus > 5000)}>Withdraw</Button>
-                          </Box>
-                        </Stack>
-                      </Box>
-                    </Grid>
+            <CardStyle>
+              <CardContent>
+                <Typography variant="subtitle1" sx={{ mb: 4 }}>
+                  You referral stats
+                </Typography>
+                <Grid container spacing={2} sx={{ width: '100%' }}>
+                  <Grid item md={5} sm={12} xs={12} height="100%" width="100%">
+                    <Box
+                      sx={{
+                        border: '1px solid #f4f4f4',
+                        minHeight: '100%',
+                        borderRadius: '0.5rem'
+                      }}
+                      py={2}
+                      px={2}
+                    >
+                      <Stack spacing={1.5}>
+                        <Typography variant="overline">Referred users</Typography>
+                        <Typography variant="h4">{fNumber(user?.referredUsers)}</Typography>
+                      </Stack>
+                    </Box>
                   </Grid>
-                </CardContent>
-              </CardStyle>
-            )}
+                  <Grid item md={7} sm={12} xs={12}>
+                    <Box
+                      sx={{ border: '1px solid #f4f4f4', height: '100%', borderRadius: '0.5rem' }}
+                      py={2}
+                      px={2}
+                    >
+                      <Stack spacing={1.5}>
+                        <Typography variant="overline">Referral bonus</Typography>
+                        <Typography variant="h4">{fCurrency(user?.referralBonus)}</Typography>
+                        <Box>
+                          <Button
+                            disabled={user?.referralBonus > 5000}
+                            onClick={() => setWithdrawalOpen(true)}
+                          >
+                            Withdraw
+                          </Button>
+                        </Box>
+                      </Stack>
+                    </Box>
+                  </Grid>
+                </Grid>
+              </CardContent>
+            </CardStyle>
           </Grid>
           <Grid item sm="12" md="4" sx={{ minWidth: '100%' }}>
             <CardStyle>

@@ -51,6 +51,7 @@ export const makePayment = (values) => API.post('/payment', values);
 export const makeManualPayment = (values) => API.post('/payment/manual', values);
 export const fetchPayment = () => API.get('/payment');
 export const fetchReferredUsers = () => API.get('/referral');
+export const referralBonusPayment = (values) => API.post('/referral/bonus-payment', values);
 
 // PAYMENTS
 export const getBanks = () => API.get('/static/banks');

@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
 import { Form, FormikProvider } from 'formik';
 import plusFill from '@iconify/icons-eva/plus-fill';
-import axios from 'axios';
-import moreVerticalFill from '@iconify/icons-eva/more-vertical-fill';
 // material
 import {
   Box,
@@ -14,11 +12,9 @@ import {
   Button,
   Collapse,
   TextField,
-  IconButton,
   CircularProgress,
   Typography,
-  MenuItem,
-  PopoverReference
+  MenuItem
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { LoadingButton } from '@mui/lab';
@@ -56,7 +52,7 @@ export default function AccountBillingPaymentMethod({
 
   const defaultValues =
     values.bankName && values.accountNumber && values.accountName && values.bankCode;
-  const [moreOpen, setMoreOpen] = useState(false);
+
   const [banks, setBanks] = useState([]);
   const [bankLoading, setBankLoading] = useState(false);
   const [bankNameLoading, setBankNameLoading] = useState(false);

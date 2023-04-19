@@ -106,7 +106,7 @@ export default function PaymentList({ payments }) {
                     </TableCell>
                     <TableCell align="left">
                       <Label variant="ghost" color="success">
-                        {payment?.transaction?.status && sentenceCase(payment?.transaction?.status)}
+                        {payment?.status && sentenceCase(payment?.status)}
                       </Label>
                     </TableCell>
                   </TableRow>

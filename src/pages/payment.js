@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import {
   Container,
@@ -12,9 +12,8 @@ import {
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { styled } from '@mui/styles';
-import { useFormik, Form, FormikProvider } from 'formik';
 import toast from 'react-hot-toast';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import Page from '../components/Page';
 import { useDispatch, useSelector } from '../redux/store';
 import * as api from '../utils/axios';
@@ -48,7 +47,6 @@ const SkeletonLoad = (
 export default function ManualPayment() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const [receiptUrl, setReceiptUrl] = useState('');
   const [isSubmitting, setSubmitting] = useState(false);
   const { state } = useLocation();
   const { bank } = config;
@@ -56,8 +54,9 @@ export default function ManualPayment() {
     dispatch(getHostel(id));
   }, [id]);
   const { hostel, isLoading } = useSelector((state) => state.hostel);
+
   // --- React hook form implementation
-  const { register, setValue, handleSubmit, getValues } = useForm({
+  const { register, setValue, handleSubmit } = useForm({
     defaultValues: {
       amount: hostel?.prices?.totalCost || '',
       receipt: '',
