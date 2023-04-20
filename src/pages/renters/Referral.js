@@ -64,8 +64,9 @@ export default function Referral() {
                         <Typography variant="h4">{fCurrency(user?.referralBonus)}</Typography>
                         <Box>
                           <Button
-                            disabled={user?.referralBonus > 5000}
+                            disabled={!(user?.referralBonus > 5000)}
                             onClick={() => setWithdrawalOpen(true)}
+                            variant="contained"
                           >
                             Withdraw
                           </Button>

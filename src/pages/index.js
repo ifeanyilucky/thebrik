@@ -1,3 +1,4 @@
+export { default as Careers } from './careers';
 export { default as Faqs } from './Faqs';
 export { default as Home } from './Home';
 export { default as About } from './About';
@@ -26,7 +27,10 @@ export { default as AgentInspections } from './Host/inspections';
 export { default as Payments } from './Host/Payments';
 
 // CUSTOMER PAGES
-
+export { default as CustomerOverview } from './renters/Overview';
+export { default as Bookings } from './renters/Bookings';
+export { default as Referral } from './renters/Referral';
+// export { default as Receipt } from './renters/receipt';
 export { default as RoommateRequest } from './renters/roommateRequest';
 export { default as PaymentHistory } from './renters/PaymentHistory';
 
@@ -34,3 +38,5 @@ export { default as UserAccount } from './dashboard/UserAccount';
 export { default as CreateHostel } from './Host/CreateHostel';
 export { default as HostelDetail } from './HostelDetail';
 export { default as Invoice } from './dashboard/invoice';
+
+export { default as Receipt } from './receipt';

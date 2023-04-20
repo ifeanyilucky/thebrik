@@ -5,39 +5,11 @@ import DashboardLayout from '../layouts/dashboard';
 import AgentDashboardLayout from '../layouts/agent';
 // import LogoOnlyLayout from '../layouts/LogoOnlyLayout';
 import Footer from '../layouts/Footer';
-import {
-  Home,
-  Hostels,
-  SendRequest,
-  Register,
-  Login,
-  About,
-  Faqs,
-  NotFound,
-  PrivacyPolicy,
-  TermsAndConditions,
-  ForgotPassword,
-  PasswordResetSuccess,
-  ResetPassword,
-  Listings,
-  AgentInspections,
-  AgentOverview,
-  RoommateRequest,
-  UserAccount,
-  CreateHostel,
-  HostelDetail,
-  Payments,
-  ListYourHostel,
-  PaymentHistory,
-  Contact,
-  ManualPayment
-  // AdminApp
-} from '../pages';
+import * as Pages from '../pages';
 import AuthGuard from '../guards/AuthGuard';
 import GuestGuard from '../guards/GuestGuard';
 import RoleBasedGuard from '../guards/RoleBasedGuard';
 import MainLayout from '../layouts/main';
-import { CustomerOverview, Bookings, Referral, Receipt } from '../pages/renters';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -58,22 +30,28 @@ export default function Router() {
         </>
       ),
       children: [
-        { path: '/', element: <Home /> },
-        { path: '/faqs', element: <Faqs /> },
-        { path: '/list-your-hostel', element: <ListYourHostel /> },
+        { path: '/', element: <Pages.Home /> },
+        { path: '/faqs', element: <Pages.Faqs /> },
+        { path: '/list-your-hostel', element: <Pages.ListYourHostel /> },
         // { path: '/become-an-agent', element: <WorkWithUs /> },
-        { path: '/hostels', element: <Hostels /> },
-        { path: '/hostels/:id', element: <HostelDetail /> },
-        { path: '/hostels/:id/payment', element: <ManualPayment /> },
-        { path: '/legal/privacy-policy', element: <PrivacyPolicy /> },
-        { path: '/about', element: <About /> },
-        { path: '/legal/privacy-policy', element: <PrivacyPolicy /> },
-        { path: '/legal/terms-conditions', element: <TermsAndConditions /> },
-        { path: '/roommate-request', element: <RoommateRequest /> },
-        { path: '/special-request', element: <SendRequest /> },
-        { path: '/contact-us', element: <Contact /> },
-        { path: '/404', element: <NotFound /> }
+        { path: '/hostels', element: <Pages.Hostels /> },
+        { path: '/hostels/:id', element: <Pages.HostelDetail /> },
+        { path: '/hostels/:id/payment', element: <Pages.ManualPayment /> },
+        { path: '/legal/privacy-policy', element: <Pages.PrivacyPolicy /> },
+        { path: '/about', element: <Pages.About /> },
+        { path: '/legal/privacy-policy', element: <Pages.PrivacyPolicy /> },
+        { path: '/careers', element: <Pages.Careers /> },
+        { path: '/legal/terms-conditions', element: <Pages.TermsAndConditions /> },
+        { path: '/roommate-request', element: <Pages.RoommateRequest /> },
+        { path: '/special-request', element: <Pages.SendRequest /> },
+        { path: '/contact-us', element: <Pages.Contact /> },
+        { path: '/404', element: <Pages.NotFound /> }
       ]
+    },
+
+    {
+      element: <Pages.Receipt />,
+      path: '/hostels/:id/payment/receipt/:receiptid'
     },
 
     // TENANT ROUTE
@@ -87,12 +65,12 @@ export default function Router() {
         </AuthGuard>
       ),
       children: [
-        { element: <CustomerOverview /> },
-        { element: <Bookings />, path: 'bookings' },
-        { path: 'account-setting', element: <UserAccount /> },
-        { path: 'referral', element: <Referral /> },
-        { path: 'payment-history', element: <PaymentHistory /> },
-        { path: 'payment-history/:id', element: <Receipt /> }
+        { element: <Pages.CustomerOverview /> },
+        { element: <Pages.Bookings />, path: 'bookings' },
+        { path: 'account-setting', element: <Pages.UserAccount /> },
+        { path: 'referral', element: <Pages.Referral /> },
+        { path: 'payment-history', element: <Pages.PaymentHistory /> },
+        { path: 'payment-history/:id', element: <Pages.Receipt /> }
       ]
     },
     // AGENT ROUTE
@@ -106,25 +84,25 @@ export default function Router() {
         </AuthGuard>
       ),
       children: [
-        { element: <AgentOverview /> },
-        // { path: '/index', element:  },
-        { path: 'listings', element: <Listings /> },
-        { path: 'account-setting', element: <UserAccount /> },
-        { path: 'payments', element: <Payments /> },
-        { path: 'inspections', element: <AgentInspections /> },
-        { path: 'listings/new', element: <CreateHostel /> },
-        { path: 'listings/:id/edit', element: <CreateHostel /> }
+        { element: <Pages.AgentOverview /> },
+        // { path: '/index', element:  Pages.},
+        { path: 'listings', element: <Pages.Listings /> },
+        { path: 'account-setting', element: <Pages.UserAccount /> },
+        { path: 'payments', element: <Pages.Payments /> },
+        { path: 'inspections', element: <Pages.AgentInspections /> },
+        { path: 'listings/new', element: <Pages.CreateHostel /> },
+        { path: 'listings/:id/edit', element: <Pages.CreateHostel /> }
       ]
     },
 
     {
       element: <GuestGuard />,
       children: [
-        { path: '/login', element: <Login /> },
-        { path: '/register', element: <Register /> },
-        { path: '/forgot-password', element: <ForgotPassword /> },
-        { path: '/password-reset-success', element: <PasswordResetSuccess /> },
-        { path: '/reset-password/:token', element: <ResetPassword /> }
+        { path: '/login', element: <Pages.Login /> },
+        { path: '/register', element: <Pages.Register /> },
+        { path: '/forgot-password', element: <Pages.ForgotPassword /> },
+        { path: '/password-reset-success', element: <Pages.PasswordResetSuccess /> },
+        { path: '/reset-password/:token', element: <Pages.ResetPassword /> }
       ]
     },
 
