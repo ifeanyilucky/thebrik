@@ -26,6 +26,7 @@ const Tab = styled(TabUnstyled)(
   font-weight: bold;
   background-color: transparent;
   width: 100%;
+  font-family: inherit;
   padding: 12px 16px;
   margin: 6px 6px;
   border: none;
