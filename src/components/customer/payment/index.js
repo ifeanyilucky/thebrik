@@ -16,7 +16,7 @@ import { sentenceCase } from 'change-case';
 import PropTypes from 'prop-types';
 import { applySortFilter, getComparator } from './sort';
 import Label from '../../Label';
-import { HostelListHead } from '../../_dashboard/agentHostels';
+import { ProductListHead } from '../../_dashboard/hostel-list';
 import Scrollbar from '../../Scrollbar';
 import { fCurrency } from '../../../utils/formatNumber';
 import { fDate } from '../../../utils/formatTime';
@@ -83,7 +83,7 @@ export default function PaymentList({ payments }) {
       <Scrollbar>
         <TableContainer sx={{ minWidth: 800 }}>
           <Table>
-            <HostelListHead
+            <ProductListHead
               order={order}
               orderBy={orderBy}
               headLabel={TABLE_HEAD}

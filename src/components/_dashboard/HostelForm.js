@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
-import _ from 'lodash';
 // material
 import { styled } from '@mui/material/styles';
 import { LoadingButton } from '@mui/lab';
@@ -79,7 +78,6 @@ export default function HostelForm({ isEdit, currentHostel }) {
     handleSubmit,
     setValue,
     getValues,
-    reset,
     control,
     formState: { errors }
   } = useForm({
@@ -134,8 +132,7 @@ export default function HostelForm({ isEdit, currentHostel }) {
     [setValue]
   );
 
-  const { images, price, cautionFee, agreementCommissionFee, agencyFee, amenities, hasPhone } =
-    getValues();
+  const { images, amenities } = getValues();
 
   const handleRemoveAll = () => {
     setSelectedFile([]);

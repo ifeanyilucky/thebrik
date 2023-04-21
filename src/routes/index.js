@@ -73,27 +73,6 @@ export default function Router() {
         { path: 'payment-history/:id', element: <Pages.Receipt /> }
       ]
     },
-    // AGENT ROUTE
-    {
-      path: 'host',
-      element: (
-        <AuthGuard>
-          <RoleBasedGuard accessibleRoles={agentRoles}>
-            <AgentDashboardLayout />
-          </RoleBasedGuard>
-        </AuthGuard>
-      ),
-      children: [
-        { element: <Pages.AgentOverview /> },
-        // { path: '/index', element:  Pages.},
-        { path: 'listings', element: <Pages.Listings /> },
-        { path: 'account-setting', element: <Pages.UserAccount /> },
-        { path: 'payments', element: <Pages.Payments /> },
-        { path: 'inspections', element: <Pages.AgentInspections /> },
-        { path: 'listings/new', element: <Pages.CreateHostel /> },
-        { path: 'listings/:id/edit', element: <Pages.CreateHostel /> }
-      ]
-    },
 
     {
       element: <GuestGuard />,
