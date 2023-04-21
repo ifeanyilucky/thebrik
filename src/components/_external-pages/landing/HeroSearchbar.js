@@ -141,6 +141,7 @@ const Wrapper = styled.div`
     position: relative;
     color: inherit;
     background-color: #ebf2f7;
+    color: #000 !important;
     border: 0;
     ::-webkit-search-cancel-button {
       position: relative;

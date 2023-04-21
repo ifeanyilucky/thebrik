@@ -32,6 +32,7 @@ const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ them
   color: '#fff',
   justifyContent: 'end',
   alignItems: 'center',
+  width: '100%',
   [theme.breakpoints.up('md')]: {
     margin: 'unset',
     height: '100%',
@@ -74,7 +75,7 @@ export default function LandingHero() {
                   Thebrik is the complete hostel rental solution for agents and university students
                   - list a hostel, rent a hostel.
                 </Typography>
-                <Box sx={{ textAlign: 'left' }}>
+                <Box sx={{ textAlign: 'left', width: '100%' }}>
                   <HeroSearchbar />
                 </Box>
               </ContentStyle>

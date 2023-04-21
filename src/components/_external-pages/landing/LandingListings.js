@@ -1,12 +1,14 @@
 import { Container, Typography, Grid, Stack, Button, Box, Skeleton } from '@mui/material';
 import { styled } from '@mui/styles';
 import PropTypes from 'prop-types';
+import { Link as RouterLink } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, Lazy } from 'swiper';
 import { HostelCard } from '../../hostel';
 import 'swiper/modules/navigation/navigation.min.css';
 import 'swiper/modules/pagination/pagination.min.css';
 import 'swiper/modules/lazy/lazy.min.css';
+import { PATH_PAGE } from '../../../routes/paths';
 
 const RootStyle = styled('div')(({ theme }) => ({
   padding: '5rem 0'
@@ -22,11 +24,6 @@ export default function LandingListings({ hostels, loading }) {
             <Stack spacing={2} sx={{ textAlign: 'center' }}>
               <Typography variant="h3">Explore amazing hostels on Thebrik</Typography>
               <Typography variant="body1" />
-              <Box marginBottom={5}>
-                <Button size="large" variant="outlined" color="inherit">
-                  Browse hostels
-                </Button>
-              </Box>
             </Stack>
           </Grid>
           <Grid item sx={{ width: '100%' }}>
@@ -68,12 +65,23 @@ export default function LandingListings({ hostels, loading }) {
                     ))
                   : hostels.map((hostel) => (
                       <SwiperSlide key={hostel._id}>
-                        <Box>
+                        <Box marginBottom={5}>
                           <HostelCard hostel={hostel} />
                         </Box>
                       </SwiperSlide>
                     ))}
               </Swiper>
+            </Box>
+            <Box marginTop={5} textAlign="center">
+              <Button
+                size="large"
+                component={RouterLink}
+                to={PATH_PAGE.hostels}
+                variant="outlined"
+                color="inherit"
+              >
+                Explore now
+              </Button>
             </Box>
           </Grid>
         </Grid>

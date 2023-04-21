@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FormikProvider, Form } from 'formik';
 
-import { Box, Typography, Grid, Link, Stack } from '@mui/material';
+import { Box, Typography, Grid, Link, Stack, MenuItem, TextField } from '@mui/material';
 import { styled } from '@mui/styles';
 import { MHidden } from './@material-extend';
 
@@ -13,7 +13,9 @@ const InputWrapper = styled('div')({
   borderWidth: '1px',
   borderStyle: 'solid',
   padding: '0.875rem 1rem',
-  borderRadius: '0.75rem'
+  borderRadius: '0.75rem',
+  display: 'flex',
+  flexFlow: 'column'
 });
 const FilterInput = styled('input')({
   background: 'transparent',
@@ -69,6 +71,7 @@ Filter.propTypes = {
 export default function Filter({ formik }) {
   const { getFieldProps } = formik;
   const [showFilter, setShowFilter] = useState(false);
+
   return (
     <FormikProvider value={formik}>
       <Form autoComplete="off" noValidate>
@@ -98,9 +101,19 @@ export default function Filter({ formik }) {
             <MHidden width={showFilter ? 'xlUp' : 'mdDown'}>
               <InputWrapper>
                 <Typography variant="overline" sx={{ color: 'text.secondary' }}>
-                  No. of beds
+                  Bedroom
+                  <TextField
+                    select
+                    {...getFieldProps('bedroom')}
+                    sx={{ textTransform: 'lowercase', outline: 'none', border: 'none' }}
+                  >
+                    <MenuItem value="">All</MenuItem>
+                    <MenuItem value="1">1 bedroom</MenuItem>
+                    <MenuItem value={'2'}>2 bedroom</MenuItem>
+                    <MenuItem value="3">3 bedroom</MenuItem>
+                    <MenuItem value={'4'}>4+ bedroom</MenuItem>
+                  </TextField>
                 </Typography>
-                <FilterInput {...getFieldProps('bedroom')} />
               </InputWrapper>
             </MHidden>
           </Grid>

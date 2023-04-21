@@ -14,9 +14,9 @@ import {
   List,
   Stack,
   Popover,
-  ListItem,
-  ListSubheader,
-  CardActionArea
+  ListItem
+  // ListSubheader,
+  // CardActionArea
 } from '@mui/material';
 
 // ----------------------------------------------------------------------
@@ -24,7 +24,7 @@ import {
 const LinkStyle = styled(Link)(({ theme }) => ({
   ...theme.typography.subtitle2,
   color: theme.palette.text.primary,
-  marginRight: theme.spacing(5),
+  marginRight: theme.spacing(3),
   transition: theme.transitions.create('opacity', {
     duration: theme.transitions.duration.shortest
   }),
