@@ -41,7 +41,8 @@ function Footer() {
       title: 'Company',
       items: [
         { title: 'About', path: PATH_PAGE.about },
-        { title: 'FAQs', path: PATH_PAGE.faqs }
+        { title: 'FAQs', path: PATH_PAGE.faqs },
+        { title: 'Careers', path: PATH_PAGE.careers }
       ]
     },
     {

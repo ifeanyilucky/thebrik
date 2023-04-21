@@ -19,7 +19,7 @@ export default function ReferralWithdrawalModal({ onClose, open }) {
     }
   });
 
-  const { accountNumber, bankCode } = getValues();
+  const { bankCode } = getValues();
 
   // Verify account details before making referral transfer
   useEffect(() => {

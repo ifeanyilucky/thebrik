@@ -24,6 +24,7 @@ export const PATH_PAGE = {
   hostels: '/hostels',
   contact: '/contact',
   faqs: '/faqs',
+  careers: '/careers',
   privacyPolicy: '/legal/privacy-policy',
   termsAndConditions: '/legal/terms-conditions',
   maintenance: '/maintenance',

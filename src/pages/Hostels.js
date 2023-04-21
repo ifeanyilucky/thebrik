@@ -64,6 +64,7 @@ function useQuery() {
 export default function Hostels() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const query = useQuery();
   const areaSearch = query.get('area');
   const pageNumber = query.get('page') || 1;
@@ -108,6 +109,12 @@ export default function Hostels() {
   useEffect(() => {
     dispatch(getHostels(values));
   }, [dispatch, values]);
+
+  useEffect(() => {
+    if (pathname === '/') {
+      resetForm();
+    }
+  }, [pathname, resetForm]);
   const handleResetFilter = () => {
     handleSubmit();
     resetForm();

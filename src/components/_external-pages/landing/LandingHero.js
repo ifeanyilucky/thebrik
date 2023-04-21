@@ -2,7 +2,7 @@ import React from 'react';
 // material
 import { styled } from '@mui/material/styles';
 import { Container, Typography, Stack, Grid, Box } from '@mui/material';
-import LandingHeroImage from './LandingHeroImage';
+// import LandingHeroImage from './LandingHeroImage';
 import HeroSearchbar from './HeroSearchbar';
 //
 
@@ -20,23 +20,24 @@ const RootStyle = styled('div')(({ theme }) => ({
     paddingBottom: theme.spacing(15),
     // position: 'fixed',
     alignItems: 'center'
-  }
+  },
+  backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.5)), url(/static/images/hero.bg-about.jpeg)`,
+  backgroundSize: 'cover'
 }));
 
 const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ theme }) => ({
   zIndex: 10,
   maxWidth: 520,
-  margin: 'auto',
   textAlign: 'center',
+  color: '#fff',
+  justifyContent: 'end',
+  alignItems: 'center',
   [theme.breakpoints.up('md')]: {
     margin: 'unset',
-    textAlign: 'left',
     height: '100%',
     marginBottom: 0,
     display: 'inline-flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'flex-start'
+    flexDirection: 'column'
   }
 }));
 
@@ -48,13 +49,19 @@ export default function LandingHero() {
       <RootStyle>
         <Container>
           <Grid
-            container
-            spacing={3}
             alignItems="center"
             direction="row"
-            justifyContent="space-between"
+            justifyContent="space-around"
+            paddingY={8}
+            marginX="auto"
           >
-            <Grid item md={6} sm={12}>
+            <Grid
+              item
+              md={7}
+              sx={{ alignSelf: 'center', display: 'flex', justifyContent: 'space-around' }}
+              sm={12}
+              marginX="auto"
+            >
               <ContentStyle>
                 <Typography variant="h1">
                   Renting a{' '}
@@ -70,43 +77,12 @@ export default function LandingHero() {
                 <Box sx={{ textAlign: 'left' }}>
                   <HeroSearchbar />
                 </Box>
-                {/* <Stack direction="row" spacing={1} sx={{ width: '100%', margin: '0 0 15px' }}>
-                  <TextField
-                    fullWidth
-                    label="Enter a location"
-                    sx={{ paddingRight: 0, position: 'relative' }}
-                    paddingRight="0"
-                    onChange={(e) => setLocation(e.target.value)}
-                    type="text"
-                    name="location"
-                    onKeyDown={searchHandler}
-                    InputProps={{
-                      endAdornment: (
-                        <Button
-                          size="large"
-                          variant="contained"
-                          sx={{ position: 'absolute', right: '4px' }}
-                          endIcon={<Iconify icon="cil:arrow-right" />}
-                          onClick={searchHandler}
-                          onKeyDown={searchHandler}
-                        >
-                          Search
-                        </Button>
-                      ),
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <Iconify icon="akar-icons:search" sx={{ height: 20, width: 20 }} />
-                        </InputAdornment>
-                      )
-                    }}
-                  />
-                </Stack> */}
               </ContentStyle>
             </Grid>
 
-            <Grid item md={6} sm={12} sx={{ position: 'relative', marginTop: 4 }}>
+            {/* <Grid item md={6} sm={12} sx={{ position: 'relative', marginTop: 4 }}>
               <LandingHeroImage />
-            </Grid>
+            </Grid> */}
           </Grid>
         </Container>
       </RootStyle>

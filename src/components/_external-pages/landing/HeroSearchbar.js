@@ -1,68 +1,67 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { styled as MuiStyled } from '@mui/material/styles';
-import { useAutocomplete, autocompleteClasses } from '@mui/material';
+// import { useAutocomplete, autocompleteClasses } from '@mui/material';
 import { PATH_PAGE } from '../../../routes/paths';
 import { useAnalyticEventTracker } from '../../../hooks/useAnalyticEventTracker';
 
-const Input = MuiStyled('input')(({ theme }) => ({
-  width: 200,
-  backgroundColor: theme.palette.mode === 'light' ? '#fff' : '#000',
-  color: theme.palette.mode === 'light' ? '#000' : '#fff'
-}));
+// const Input = MuiStyled('input')(({ theme }) => ({
+//   width: 200,
+//   backgroundColor: theme.palette.mode === 'light' ? '#fff' : '#000',
+//   color: theme.palette.mode === 'light' ? '#000' : '#fff'
+// }));
 
-const Listbox = MuiStyled('ul')(({ theme }) => ({
-  width: '100%',
-  margin: 0,
-  padding: 10,
-  zIndex: 1,
-  position: 'absolute',
-  listStyle: 'none',
-  backgroundColor: '#fff',
-  overflow: 'auto',
-  maxHeight: 200,
-  borderRadius: '18px',
-  border: '1px solid #daedff',
-  '& li': {
-    cursor: 'pointer',
-    backgroundColor: '#f4f4f4',
-    padding: '8px 14px',
-    margin: '8px 0',
-    textTransform: 'capitalize',
-    borderRadius: '18px'
-  },
-  '& li.Mui-focused': {
-    backgroundColor: '#4a8df6',
-    color: 'white',
-    cursor: 'pointer'
-  },
-  '& li:active': {
-    backgroundColor: '#2977f5',
-    color: 'white'
-  }
-}));
+// const Listbox = MuiStyled('ul')(({ theme }) => ({
+//   width: '100%',
+//   margin: 0,
+//   padding: 10,
+//   zIndex: 1,
+//   position: 'absolute',
+//   listStyle: 'none',
+//   backgroundColor: '#fff',
+//   overflow: 'auto',
+//   maxHeight: 200,
+//   borderRadius: '18px',
+//   border: '1px solid #daedff',
+//   '& li': {
+//     cursor: 'pointer',
+//     backgroundColor: '#f4f4f4',
+//     padding: '8px 14px',
+//     margin: '8px 0',
+//     textTransform: 'capitalize',
+//     borderRadius: '18px'
+//   },
+//   '& li.Mui-focused': {
+//     backgroundColor: '#4a8df6',
+//     color: 'white',
+//     cursor: 'pointer'
+//   },
+//   '& li:active': {
+//     backgroundColor: '#2977f5',
+//     color: 'white'
+//   }
+// }));
 
-const areas = ['iba junction', 'ppl', 'post service', 'first gate', 'iyana school', 'ipaye'];
+// const areas = ['iba junction', 'ppl', 'post service', 'first gate', 'iyana school', 'ipaye'];
 
 export default function HeroSearchbar() {
   const navigate = useNavigate();
   const gaEventTracker = useAnalyticEventTracker('Homepage search');
-  const {
-    getRootProps,
-    getInputLabelProps,
-    getInputProps,
-    getListboxProps,
-    getOptionProps,
-    groupedOptions
-  } = useAutocomplete({
-    id: 'area-search',
-    onChange: (e) => {
-      console.log(e.target.value);
-    },
-    options: areas,
-    getOptionLabel: (option) => option
-  });
+  // const {
+  //   getRootProps,
+  //   getInputLabelProps,
+  //   getInputProps,
+  //   getListboxProps,
+  //   getOptionProps,
+  //   groupedOptions
+  // } = useAutocomplete({
+  //   id: 'area-search',
+  //   onChange: (e) => {
+  //     console.log(e.target.value);
+  //   },
+  // options: areas,
+  // getOptionLabel: (option) => option
+  // });
 
   const [areaSearch, setAreaSearch] = useState('');
 
@@ -82,13 +81,13 @@ export default function HeroSearchbar() {
         <input
           id="area-search"
           type="search"
-          placeholder="Enter area"
+          placeholder="Enter area eg. first gate, iyana school, ppl "
           onChange={(e) => {
             setAreaSearch(e.target.value);
           }}
         />
         <button onClick={onSearch} type="button">
-          Go
+          Search
         </button>
       </div>
       {/* <div>
