@@ -37,6 +37,5 @@ export { default as PaymentHistory } from './renters/PaymentHistory';
 export { default as UserAccount } from './dashboard/UserAccount';
 export { default as CreateHostel } from './Host/CreateHostel';
 export { default as HostelDetail } from './HostelDetail';
-export { default as Invoice } from './dashboard/invoice';
 
 export { default as Receipt } from './receipt';

@@ -1,27 +1,23 @@
-import { useDispatch } from 'react-redux';
-import { Icon } from '@iconify/react';
 import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import homeFill from '@iconify/icons-eva/home-fill';
 import settings2Fill from '@iconify/icons-eva/settings-2-fill';
 import eye2Fill from '@iconify/icons-eva/eye-off-2-fill';
-import dropdown from '@iconify/icons-ic/arrow-drop-down';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 // material
 import {
-  Button,
+ 
   Box,
   Divider,
   MenuItem,
   Typography,
-  Avatar,
   IconButton,
   Stack
 } from '@mui/material';
 import { alpha } from '@mui/material/styles';
 // components
 import MenuPopover from '../../components/MenuPopover';
-import { PATH_AGENT, PATH_PAGE } from '../../routes/paths';
+import { PATH_AGENT } from '../../routes/paths';
 import MyAvatar from '../../components/MyAvatar';
 
 // ----------------------------------------------------------------------
@@ -64,7 +60,7 @@ export default function AgentAccountPopover({ user, logout }) {
   if (!user) {
     return <h1>Loading..</h1>;
   }
-  const { profilePic, firstName, lastName, email } = user;
+  const { firstName, lastName, email } = user;
   return (
     <>
       <IconButton

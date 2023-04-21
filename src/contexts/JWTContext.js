@@ -1,8 +1,8 @@
 import { createContext, useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
 // utils
-import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
-import { PATH_AGENT, PATH_DASHBOARD } from '../routes/paths';
+import { useNavigate } from 'react-router-dom';
+import { PATH_AGENT } from '../routes/paths';
 import { isValidToken, setSession } from '../utils/jwt';
 import * as api from '../utils/axios';
 
@@ -161,15 +161,15 @@ export function AuthProvider({ children }) {
   };
 
   const forgotPassword = async (payload) => {
-    const { data } = await api.forgotPassword(payload);
+    await api.forgotPassword(payload);
   };
 
   const resetPassword = async (payload, token) => {
-    const { data } = await api.resetPassword(payload, token);
+    await api.resetPassword(payload, token);
   };
 
   const changePassword = async (payload) => {
-    const { data } = await api.changePassword(payload);
+    await api.changePassword(payload);
   };
   const updateProfile = async (payload) => {
     const {

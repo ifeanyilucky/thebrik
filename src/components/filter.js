@@ -1,25 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FormikProvider, Form } from 'formik';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Icon } from '@iconify/react';
-import roundClearAll from '@iconify/icons-ic/round-clear-all';
-import {
-  Button,
-  Box,
-  Typography,
-  Grid,
-  Link,
-  Stack,
-  TextField,
-  Input,
-  MenuItem,
-  Select
-} from '@mui/material';
+
+import { Box, Typography, Grid, Link, Stack } from '@mui/material';
 import { styled } from '@mui/styles';
-import { PATH_PAGE } from '../routes/paths';
-import Iconify from './Iconify';
-import { fCurrency } from '../utils/formatNumber';
 import { MHidden } from './@material-extend';
 
 // ------------------------------------------------------------------------
@@ -40,14 +24,14 @@ const FilterInput = styled('input')({
   fontSize: '15px'
 });
 
-const FilterSelect = styled(Select)({
-  background: 'transparent',
-  outline: 0,
-  borderWidth: 0,
-  width: '100%',
-  fontFamily: 'inherit',
-  fontSize: '15px'
-});
+// const FilterSelect = styled(Select)({
+//   background: 'transparent',
+//   outline: 0,
+//   borderWidth: 0,
+//   width: '100%',
+//   fontFamily: 'inherit',
+//   fontSize: '15px'
+// });
 // ------------------------------------------------------------------------
 
 export const SORT_BY_OPTIONS = [
@@ -72,17 +56,18 @@ export const FILTER_PRICE_OPTIONS = [
 ];
 
 // ------------------------------------------------------------------------
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
+// function useQuery() {
+//   return new URLSearchParams(useLocation().search);
+// }
 
 Filter.propTypes = {
   onResetFilter: PropTypes.func,
   formik: PropTypes.object
 };
 
-export default function Filter({ onResetFilter, formik }) {
-  const { values, getFieldProps, handleChange, setFieldValue } = formik;
+// export default function Filter({ onResetFilter, formik }) {
+export default function Filter({ formik }) {
+  const { getFieldProps } = formik;
   const [showFilter, setShowFilter] = useState(false);
   return (
     <FormikProvider value={formik}>

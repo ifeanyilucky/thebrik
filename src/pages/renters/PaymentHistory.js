@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { random } from 'lodash';
 // material
 import { Container, Typography, Stack } from '@mui/material';
 // components
@@ -7,8 +6,6 @@ import Page from '../../components/Page';
 import PaymentList from '../../components/customer/payment';
 import { getPayments } from '../../redux/slices/renter';
 import { useSelector, useDispatch } from '../../redux/store';
-import { NotFound } from '../../components/customer/NotFound';
-import { InvoiceToolbar } from '../../components/_dashboard/invoice';
 
 export default function PaymentHistory() {
   const dispatch = useDispatch();

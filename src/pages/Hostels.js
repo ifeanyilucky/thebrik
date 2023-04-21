@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useSearchParams, useNavigate, createSearchParams, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 // material
 import { Backdrop, Container, Typography, CircularProgress, Box } from '@mui/material';
 import { useFormik } from 'formik';
@@ -51,11 +51,11 @@ function applyFilter(hostels, sortBy, filters) {
 }
 
 // ----------------------------------------------------------------------
-const useCustomSearchParams = () => {
-  const [search, setSearch] = useSearchParams();
-  const searchAsObject = Object.fromEntries(new URLSearchParams(search));
-  return [searchAsObject, setSearch];
-};
+// const useCustomSearchParams = () => {
+//   const [search, setSearch] = useSearchParams();
+//   const searchAsObject = Object.fromEntries(new URLSearchParams(search));
+//   return [searchAsObject, setSearch];
+// };
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -95,7 +95,7 @@ export default function Hostels() {
     },
     enableReinitialize: true
   });
-  const { values, resetForm, handleSubmit, isSubmitting, initialValues } = formik;
+  const { values, resetForm, handleSubmit, initialValues } = formik;
   console.log(data);
   const isDefault =
     !values.area &&

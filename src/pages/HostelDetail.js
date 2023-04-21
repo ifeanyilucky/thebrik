@@ -1,11 +1,8 @@
 import { sentenceCase } from 'change-case';
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-// material
-import { alpha, styled } from '@mui/material/styles';
 import { Box, Grid, Divider, Skeleton, Container, Typography, Stack } from '@mui/material';
-// redux
-import styledComponents from 'styled-components';
+
 // react share
 import {
   FacebookShareButton,
@@ -33,25 +30,8 @@ import { HostelDetailsSummary } from '../components/hostel-details';
 import Masonry from '../components/masonry';
 import Amenity from '../components/Amenity';
 import { useAuth } from '../hooks/useAuth';
-import Iconify from '../components/Iconify';
-import { HostelCard } from '../components/hostel';
-import { getHostel, getHostels } from '../redux/slices/hostels';
+import { getHostel } from '../redux/slices/hostels';
 import { useAnalyticEventTracker } from '../hooks/useAnalyticEventTracker';
-
-// ----------------------------------------------------------------------
-
-const IconWrapperStyle = styled('div')(({ theme }) => ({
-  margin: 'auto',
-  display: 'flex',
-  borderRadius: '50%',
-  alignItems: 'center',
-  width: theme.spacing(8),
-  justifyContent: 'center',
-  height: theme.spacing(8),
-  marginBottom: theme.spacing(3),
-  color: theme.palette.primary.main,
-  backgroundColor: `${alpha(theme.palette.primary.main, 0.08)}`
-}));
 
 // ----------------------------------------------------------------------
 
@@ -76,8 +56,7 @@ export default function HostelDetails() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { user } = useAuth();
-  const navigate = useNavigate();
-  const { pathname } = useLocation();
+
   useEffect(() => {
     dispatch(getHostel(id));
   }, [id]);

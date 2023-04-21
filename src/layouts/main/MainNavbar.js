@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // material
 import { styled } from '@mui/material/styles';
@@ -32,19 +31,6 @@ const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     height: APP_BAR_DESKTOP
   }
-}));
-
-const ToolbarShadowStyle = styled('div')(({ theme }) => ({
-  left: 0,
-  right: 0,
-  bottom: 0,
-  height: 24,
-  zIndex: -1,
-  margin: 'auto',
-  borderRadius: '50%',
-  position: 'absolute',
-  width: `calc(100% - 48px)`,
-  boxShadow: theme.customShadows
 }));
 
 // ----------------------------------------------------------------------

@@ -1,4 +1,3 @@
-import { Icon } from '@iconify/react';
 import { useState } from 'react';
 import { truncate } from 'lodash';
 // material
@@ -10,7 +9,6 @@ import {
   TableRow,
   TableBody,
   TableCell,
-  Container,
   Typography,
   TableContainer,
   TablePagination
@@ -19,8 +17,6 @@ import {
 // utils
 import { fDate } from '../../../utils/formatTime';
 import { fCurrency } from '../../../utils/formatNumber';
-// routes
-import { PATH_DASHBOARD } from '../../../routes/paths';
 // components
 import Page from '../../Page';
 import Label from '../../Label';

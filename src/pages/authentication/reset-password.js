@@ -1,16 +1,11 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
-import { Box, Button, Container, Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 // layouts
 import LogoOnlyLayout from '../../layouts/LogoOnlyLayout';
-// routes
-import { PATH_AUTH } from '../../routes/paths';
 // components
 import Page from '../../components/Page';
 //
-import { SentIcon } from '../../assets';
 import ResetPasswordForm from '../../components/authentication/reset-password/reset-form';
 
 // ----------------------------------------------------------------------

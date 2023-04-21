@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Navigate, useLocation, Outlet } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // hooks
 import { useAuth } from '../hooks/useAuth';
@@ -28,3 +28,7 @@ export default function AuthGuard({ children }) {
 
   return <>{children}</>;
 }
+
+AuthGuard.propTypes = {
+  children: PropTypes.node
+};

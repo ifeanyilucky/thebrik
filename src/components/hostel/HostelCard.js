@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // material
-import { Box, Card, Link, Typography, Stack } from '@mui/material';
+import { Box, Card, Typography, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
 // routes
 import { PATH_PAGE } from '../../routes/paths';
 // utils
 import { fCurrency, fNumber } from '../../utils/formatNumber';
 //
-import Label from '../Label';
+// import Label from '../Label';
 
 // ----------------------------------------------------------------------
 
@@ -37,8 +37,8 @@ export default function HostelCard({ hostel }) {
     area,
     state,
     pricePerWhat,
-    available,
-    _id,
+    // available,
+    // _id,
     urlId,
     bedrooms,
     bathrooms

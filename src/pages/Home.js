@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // material
 import { styled } from '@mui/material/styles';
 import Page from '../components/Page';
@@ -12,6 +12,8 @@ import {
   LandingTestimonial,
   LandingListings
 } from '../components/_external-pages/landing';
+import { useDispatch, useSelector } from '../redux/store';
+import { getHostels } from '../redux/slices/hostels';
 
 const ContentStyle = styled('div')(({ theme }) => ({
   overflow: 'hidden',
@@ -20,6 +22,16 @@ const ContentStyle = styled('div')(({ theme }) => ({
 }));
 
 export default function Home() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getHostels());
+  }, [dispatch]);
+
+  const {
+    hostels: { data },
+    isLoading
+  } = useSelector((state) => state.hostel);
+  console.log(data);
   return (
     <Page title="Renting a hostel just got easier.">
       <LandingHero />
@@ -28,7 +40,7 @@ export default function Home() {
         <LandingSteps />
         <LandingWhyThebrik />
         <LandingBudget />
-        <LandingListings />
+        <LandingListings hostels={data} loading={isLoading} />
         <LandingTestimonial />
         {/* <LandingPartner /> */}
 

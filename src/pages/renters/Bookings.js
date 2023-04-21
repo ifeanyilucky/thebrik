@@ -1,6 +1,5 @@
 import { Container, Stack, Typography, Box, CircularProgress } from '@mui/material';
 import { useEffect } from 'react';
-import { NotFound } from '../../components/customer/NotFound';
 import { useDispatch, useSelector } from '../../redux/store';
 import { getBookings } from '../../redux/slices/renter';
 import BookingsList from '../../components/customer/bookings';

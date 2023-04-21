@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Box, Grid, Typography, Stack } from '@mui/material';
+import { Container, Grid, Typography, Stack } from '@mui/material';
 import OverviewCard from '../../components/customer/overview';
 import HelpCenterCard from '../../components/customer/HelpCenterCard';
 import AppListing from '../../components/customer/AppListing';

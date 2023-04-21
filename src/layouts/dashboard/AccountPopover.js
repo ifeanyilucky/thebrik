@@ -1,23 +1,11 @@
-import { useDispatch } from 'react-redux';
-import { Icon } from '@iconify/react';
 import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import homeFill from '@iconify/icons-eva/home-fill';
 import settings2Fill from '@iconify/icons-eva/settings-2-fill';
 import eye2Fill from '@iconify/icons-eva/eye-off-2-fill';
-import dropdown from '@iconify/icons-ic/arrow-drop-down';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 // material
-import {
-  Button,
-  Box,
-  Divider,
-  MenuItem,
-  Typography,
-  Avatar,
-  IconButton,
-  Stack
-} from '@mui/material';
+import { Box, Divider, MenuItem, Typography, IconButton, Stack } from '@mui/material';
 import { alpha } from '@mui/material/styles';
 // components
 import MenuPopover from '../../components/MenuPopover';
@@ -53,8 +41,7 @@ AccountPopover.propTypes = {
 export default function AccountPopover({ user, logout }) {
   const anchorRef = useRef(null);
   const [open, setOpen] = useState(null);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const handleOpen = (event) => {
     setOpen(event.currentTarget);
   };
@@ -65,7 +52,7 @@ export default function AccountPopover({ user, logout }) {
   if (!user) {
     return 'Loading';
   }
-  const { profilePic, firstName, lastName, email } = user;
+  const { firstName, lastName, email } = user;
   return (
     <>
       <IconButton

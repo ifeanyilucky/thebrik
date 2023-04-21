@@ -13,6 +13,7 @@ import {
 import { styled } from '@mui/material/styles';
 import { useState } from 'react';
 import { sentenceCase } from 'change-case';
+import PropTypes from 'prop-types';
 import { applySortFilter, getComparator } from './sort';
 import Label from '../../Label';
 import { HostelListHead } from '../../_dashboard/agentHostels';
@@ -40,10 +41,13 @@ const RootStyle = styled(Card)(({ theme }) => ({
   }
 }));
 
+PaymentList.propTypes = {
+  payments: PropTypes.array
+};
+
 export default function PaymentList({ payments }) {
   const [page, setPage] = useState(0);
   const [order, setOrder] = useState('asc');
-  const [selected] = useState([]);
   const [orderBy, setOrderBy] = useState('price');
   const [filterName, setFilterName] = useState('');
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -65,9 +69,9 @@ export default function PaymentList({ payments }) {
     setPage(0);
   };
 
-  const handleFilterByName = (e) => {
-    setFilterName(e.target.value);
-  };
+  // const handleFilterByName = (e) => {
+  //   setFilterName(e.target.value);
+  // };
 
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - payments.length) : 0;
 
