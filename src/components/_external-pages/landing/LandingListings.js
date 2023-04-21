@@ -37,23 +37,23 @@ export default function LandingListings({ hostels, loading }) {
             </Stack>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Grid container spacing={3}>
+            <Stack spacing={3}>
               {loading
-                ? [...Array(12)].map((_, index) => (
-                    <Grid item xs={12} sm={6} md={3} key={index}>
+                ? [...Array(4)].map((_, index) => (
+                    <Box key={index}>
                       <Skeleton
                         variant="rectangular"
                         width="100%"
                         sx={{ paddingTop: '115%', borderRadius: 2 }}
                       />
-                    </Grid>
+                    </Box>
                   ))
                 : hostels.map((hostel) => (
-                    <Grid key={hostel._id} item xs={12} sm={12} md={4}>
+                    <Box key={hostel._id}>
                       <HostelCard hostel={hostel} />
-                    </Grid>
+                    </Box>
                   ))}
-            </Grid>
+            </Stack>
           </Grid>
         </Grid>
       </Container>
