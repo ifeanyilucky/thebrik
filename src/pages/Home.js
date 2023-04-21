@@ -10,7 +10,7 @@ import {
   LandingBudget,
   LandingWhyThebrik,
   LandingTestimonial,
-  LandingListings
+  LandingListings 
 } from '../components/_external-pages/landing';
 import { useDispatch, useSelector } from '../redux/store';
 import { getHostels } from '../redux/slices/hostels';

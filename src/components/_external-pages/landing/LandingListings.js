@@ -29,26 +29,6 @@ export default function LandingListings({ hostels, loading }) {
               </Box>
             </Stack>
           </Grid>
-<<<<<<< HEAD
-          <Grid item xs={12} md={6}>
-            <Stack spacing={3}>
-              {loading
-                ? [...Array(4)].map((_, index) => (
-                    <Box key={index}>
-                      <Skeleton
-                        variant="rectangular"
-                        width="100%"
-                        sx={{ paddingTop: '115%', borderRadius: 2 }}
-                      />
-                    </Box>
-                  ))
-                : hostels.map((hostel) => (
-                    <Box key={hostel._id}>
-                      <HostelCard hostel={hostel} />
-                    </Box>
-                  ))}
-            </Stack>
-=======
           <Grid item sx={{ width: '100%' }}>
             <Box container spacing={3}>
               <Swiper
@@ -95,7 +75,6 @@ export default function LandingListings({ hostels, loading }) {
                     ))}
               </Swiper>
             </Box>
->>>>>>> 44a26a72206ef05a69ce99ff091960311e598448
           </Grid>
         </Grid>
       </Container>
