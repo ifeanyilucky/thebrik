@@ -109,7 +109,7 @@ export default function HostelTagFiltered({ formik, filters, isDefault, onResetF
           <LabelStyle>bed:</LabelStyle>
           <Stack direction="row" flexWrap="wrap" sx={{ p: 0.75 }}>
             <Chip
-              label={values.bedroom}
+              label={`${values.bedroom} bedroom`}
               size="small"
               onDelete={() => handleRemoveBeds()}
               sx={{ m: 0.5, fontWeight: '500' }}
