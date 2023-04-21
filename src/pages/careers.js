@@ -8,7 +8,7 @@ export default function Careers() {
         <Box maxWidth="sm" sx={{ alignSelf: 'center' }}>
           <Typography variant="body1">
             Want to bring your fullest self to work? Passionate about customers and transforming the
-            way local agents run their business? We’ve been looking for you.
+            way hostel agents run their business? We’ve been looking for you.
           </Typography>
         </Box>
         <Box>

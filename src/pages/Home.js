@@ -38,9 +38,9 @@ export default function Home() {
       <ContentStyle>
         <Simplify />
         <LandingSteps />
+        <LandingListings hostels={data} loading={isLoading} />
         <LandingWhyThebrik />
         <LandingBudget />
-        <LandingListings hostels={data} loading={isLoading} />
         <LandingTestimonial />
         {/* <LandingPartner /> */}
 

@@ -170,7 +170,7 @@ export default function HostelForm({ isEdit, currentHostel }) {
       .catch((error) => {
         console.log(error);
         setSubmitting(false);
-        toast.error('Something went wrong, try again later');
+        toast.error(error.response.data.msg, { duration: 6500 });
       });
   };
 
