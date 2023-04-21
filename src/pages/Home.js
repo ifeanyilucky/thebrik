@@ -10,7 +10,7 @@ import {
   LandingBudget,
   LandingWhyThebrik,
   LandingTestimonial,
-  LandingPartner
+  LandingListings
 } from '../components/_external-pages/landing';
 
 const ContentStyle = styled('div')(({ theme }) => ({
@@ -28,7 +28,7 @@ export default function Home() {
         <LandingSteps />
         <LandingWhyThebrik />
         <LandingBudget />
-        {/* <LandingListings /> */}
+        <LandingListings />
         <LandingTestimonial />
         {/* <LandingPartner /> */}
 
