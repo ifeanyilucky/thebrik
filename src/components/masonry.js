@@ -30,6 +30,25 @@ export default function Masonry({ hostel }) {
 
   return (
     <ContainerStyle maxWidth="lg">
+      {/* Image lightbox modal */}
+      {lightboxOpen ? (
+        <Lightbox
+          mainSrc={imagesLightbox[photoIndex]?.image}
+          nextSrc={imagesLightbox[(photoIndex + 1) % imagesLightbox.length]?.image}
+          prevSrc={
+            imagesLightbox[(photoIndex + imagesLightbox.length - 1) % imagesLightbox.length].image
+          }
+          onCloseRequest={() => setLightboxOpen(false)}
+          onMovePrevRequest={() =>
+            setPhotoIndex(photoIndex + imagesLightbox.length - (1 % imagesLightbox.length))
+          }
+          onMoveNextRequest={() => setPhotoIndex(photoIndex + (1 % imagesLightbox.length))}
+        />
+      ) : (
+        ''
+      )}
+
+      {/* Desktop image grid view */}
       <MHidden width="smDown">
         <WrapperTwo>
           <div className="spaceDetail__wrap">
@@ -90,25 +109,10 @@ export default function Masonry({ hostel }) {
               </button>
             </div>
           </div>
-          {lightboxOpen ? (
-            <Lightbox
-              mainSrc={imagesLightbox[photoIndex]?.image}
-              nextSrc={imagesLightbox[(photoIndex + 1) % imagesLightbox.length]?.image}
-              prevSrc={
-                imagesLightbox[(photoIndex + imagesLightbox.length - 1) % imagesLightbox.length]
-                  .image
-              }
-              onCloseRequest={() => setLightboxOpen(false)}
-              onMovePrevRequest={() =>
-                setPhotoIndex(photoIndex + imagesLightbox.length - (1 % imagesLightbox.length))
-              }
-              onMoveNextRequest={() => setPhotoIndex(photoIndex + (1 % imagesLightbox.length))}
-            />
-          ) : (
-            ''
-          )}
         </WrapperTwo>
       </MHidden>
+
+      {/* Mobile image slider view */}
       <MHidden width="smUp">
         <div className="md_img">
           <Swiper
@@ -126,10 +130,15 @@ export default function Masonry({ hostel }) {
           >
             {' '}
             {imagesLightbox?.map((photo, index) => (
-              <SwiperSlide key={index}>
-                <img src={photo.image} className="swiper-lazy" alt="hostel_image" />
-                <div className="swiper-lazy-preloader swiper-lazy-preloader-white" />
-              </SwiperSlide>
+              <>
+                {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
+                <div>
+                  <SwiperSlide key={index} onClick={() => setLightboxOpen(true)} role="dialog">
+                    <img src={photo.image} className="swiper-lazy" alt="hostel_image" />
+                    <div className="swiper-lazy-preloader swiper-lazy-preloader-white" />
+                  </SwiperSlide>
+                </div>
+              </>
             ))}{' '}
           </Swiper>
         </div>

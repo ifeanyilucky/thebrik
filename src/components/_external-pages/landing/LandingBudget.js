@@ -2,7 +2,6 @@
 import { styled } from '@mui/material/styles';
 import { Box, Grid, Container, Typography, Stack, Button } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
-import Iconify from '../../Iconify';
 import { PATH_PAGE } from '../../../routes/paths';
 
 // ----------------------------------------------------------------------
@@ -10,21 +9,6 @@ import { PATH_PAGE } from '../../../routes/paths';
 const RootStyle = styled('div')(({ theme }) => ({
   padding: theme.spacing(8, 0),
   marginBottom: theme.spacing(10)
-}));
-
-const ContentStyle = styled('div')(({ theme }) => ({
-  textAlign: 'center',
-  position: 'relative',
-  marginBottom: theme.spacing(10),
-  [theme.breakpoints.up('md')]: {
-    height: '100%',
-    marginBottom: 0,
-    textAlign: 'left',
-    display: 'inline-flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'flex-start'
-  }
 }));
 
 // ----------------------------------------------------------------------

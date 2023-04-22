@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { Navigate, useRoutes } from 'react-router-dom';
 import ReactGA from 'react-ga';
 import DashboardLayout from '../layouts/dashboard';
-import AgentDashboardLayout from '../layouts/agent';
 // import LogoOnlyLayout from '../layouts/LogoOnlyLayout';
 import Footer from '../layouts/Footer';
 import * as Pages from '../pages';
@@ -13,7 +12,6 @@ import MainLayout from '../layouts/main';
 // ----------------------------------------------------------------------
 
 export default function Router() {
-  const agentRoles = ['Host'];
   const memberRoles = ['Member'];
   ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
 

@@ -22,10 +22,10 @@ export const changePassword = (values) => API.patch('/auth/account/update-passwo
 // HOSTEL
 export const fetchHostels = (page) => API.get(`/properties?page=${page}`);
 export const fetchHostelsBySearch = (values) => {
-  const { area, minPrice, maxPrice, bedroom, page } = values;
+  const { area, title, minPrice, maxPrice, bedroom, page } = values;
   console.log(values);
   return API.get(
-    `/properties?page=${page}${area && `&location=${area}`}${
+    `/properties?page=${page}${title && `&title=${title}`}${area && `&location=${area}`}${
       minPrice && `&numericFilters=price>=${minPrice}`
     }${maxPrice && `&numericFilters=price<=${maxPrice}`}${
       bedroom && `&numericFilters=bedrooms=${bedroom}`

@@ -1,11 +1,11 @@
 // material
-import { alpha, useTheme, styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import { Grid, Container, Typography, Stack, Box } from '@mui/material';
 import Iconify from '../../Iconify';
 // routes
 // import { PATH_PAGE } from '../../../routes/paths';
 //
-import { varFadeInUp, MotionInView } from '../../animate';
+// import { varFadeInUp, MotionInView } from '../../animate';
 
 // ----------------------------------------------------------------------
 

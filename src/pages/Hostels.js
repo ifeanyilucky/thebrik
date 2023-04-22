@@ -66,7 +66,7 @@ export default function Hostels() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const query = useQuery();
-  const areaSearch = query.get('area');
+  const titleSearch = query.get('title');
   const pageNumber = query.get('page') || 1;
   const {
     hostels: { data, currentPage, numberOfPages, totalHostels },
@@ -77,19 +77,19 @@ export default function Hostels() {
 
   const filteredHostels = applyFilter(data, sortBy, filters);
 
-  console.log(filteredHostels);
   const formik = useFormik({
     initialValues: {
       minPrice: '',
       maxPrice: '',
       bedroom: '',
-      area: areaSearch || '',
+      area: '',
       category: 'All',
-      page: pageNumber
+      page: pageNumber,
+      title: titleSearch || ''
     },
     onSubmit: async (values, { setSubmitting }) => {
       try {
-        setSubmitting(false);
+        dispatch(getHostels(values));
       } catch (error) {
         setSubmitting(false);
       }
@@ -97,9 +97,10 @@ export default function Hostels() {
     enableReinitialize: true
   });
   const { values, resetForm, handleSubmit, initialValues } = formik;
-  console.log(data);
+
   const isDefault =
     !values.area &&
+    !values.title &&
     values.category === 'All' &&
     !values.bedroom &&
     !values.maxPrice &&
@@ -108,18 +109,22 @@ export default function Hostels() {
 
   useEffect(() => {
     dispatch(getHostels(values));
-  }, [dispatch, values]);
+  }, [dispatch]);
 
-  useEffect(() => {
-    if (pathname === '/') {
-      resetForm();
-    }
-  }, [pathname, resetForm]);
+  // Reset the filters
   const handleResetFilter = () => {
     handleSubmit();
     resetForm();
     navigate(PATH_PAGE.hostels, { replace: true });
   };
+
+  // If filtering form is empty, reset the search
+  useEffect(() => {
+    if (isDefault) {
+      handleResetFilter();
+    }
+  }, [isDefault]);
+
   return (
     <Page title="Hostels">
       {isLoading === true && (

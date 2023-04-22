@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import { Backdrop, CircularProgress } from '@mui/material';
 // import { useDispatch } from 'react-redux';
 import { Toaster } from 'react-hot-toast';

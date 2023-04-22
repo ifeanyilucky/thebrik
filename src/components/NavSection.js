@@ -1,20 +1,8 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
-import { Icon } from '@iconify/react';
 import { NavLink as RouterLink, matchPath, useLocation } from 'react-router-dom';
-import arrowIosForwardFill from '@iconify/icons-eva/arrow-ios-forward-fill';
-import arrowIosDownwardFill from '@iconify/icons-eva/arrow-ios-downward-fill';
 // material
-import { alpha, useTheme, styled } from '@mui/material/styles';
-import {
-  Box,
-  List,
-  Collapse,
-  ListItemText,
-  ListItemIcon,
-  ListSubheader,
-  ListItemButton
-} from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { Box, List, ListItemText, ListItemIcon, ListItemButton } from '@mui/material';
 
 // ----------------------------------------------------------------------
 

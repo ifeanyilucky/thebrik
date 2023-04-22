@@ -67,7 +67,7 @@ export default function HeroSearchbar() {
 
   const onSearch = () => {
     if (areaSearch) {
-      navigate(`${PATH_PAGE.hostels}?area=${areaSearch}`);
+      navigate(`${PATH_PAGE.hostels}?title=${areaSearch}`);
       gaEventTracker(`User searched for ${areaSearch}`, 'filter');
     }
   };
@@ -81,7 +81,7 @@ export default function HeroSearchbar() {
         <input
           id="area-search"
           type="search"
-          placeholder="Enter area eg. first gate, iyana school, ppl "
+          placeholder="Enter preferred apartment e.g. A bedroom self-contained "
           onChange={(e) => {
             setAreaSearch(e.target.value);
           }}

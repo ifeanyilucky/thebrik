@@ -16,8 +16,8 @@ export const config = {
     accountName: 'Thebrik Nigeria Limited'
   },
   tel: {
-    support: '09138770915',
-    support1: '2348131271411',
+    support: '+2349138770915',
+    support1: '+2349025519205',
     support2: '09071499826'
   },
   paystack: {
