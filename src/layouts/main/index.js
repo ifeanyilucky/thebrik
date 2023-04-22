@@ -16,14 +16,6 @@ export default function MainLayout() {
           <Link
             sx={{ color: '#fff', textDecoration: 'underline' }}
             component={'a'}
-            href={`tel:${config.tel.support1}`}
-          >
-            {config.tel.support1}
-          </Link>
-          {', '}
-          <Link
-            sx={{ color: '#fff', textDecoration: 'underline' }}
-            component={'a'}
             href={`tel:${config.tel.support}`}
           >
             {config.tel.support}
