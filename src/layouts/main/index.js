@@ -20,6 +20,14 @@ export default function MainLayout() {
           >
             {config.tel.support}
           </Link>
+          {', '}
+          <Link
+            sx={{ color: '#fff', textDecoration: 'underline' }}
+            component={'a'}
+            href={`tel:${config.tel.support1}`}
+          >
+            {config.tel.support}
+          </Link>
         </Typography>
       </Box>
       <MainNavbar />
