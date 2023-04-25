@@ -1,25 +1,31 @@
 import { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, useNavigate, Link as RouterLink } from 'react-router-dom';
 import {
   Container,
   Typography,
   Card,
   CardContent,
+  Box,
   Stack,
   TextField,
   Grid,
-  Skeleton
+  DialogContent,
+  Skeleton,
+  Button
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { styled } from '@mui/styles';
 import toast from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
+import Iconify from '../components/Iconify';
 import Page from '../components/Page';
 import { useDispatch, useSelector } from '../redux/store';
 import * as api from '../utils/axios';
 import { getHostel } from '../redux/slices/hostels';
 import { config } from '../config';
 import PriceBreakdown from '../components/payment/price-breakdown';
+import { DialogAnimate } from '../components/animate';
+import { PATH_DASHBOARD } from '../routes/paths';
 
 const LabelStyle = styled(Typography)(({ theme }) => ({
   ...theme.typography.subtitle2,
@@ -48,7 +54,9 @@ export default function ManualPayment() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [isSubmitting, setSubmitting] = useState(false);
+  const [processingOpen, setProcessingOpen] = useState(false);
   const { state } = useLocation();
+  const navigate = useNavigate();
   const { bank } = config;
   useEffect(() => {
     dispatch(getHostel(id));
@@ -79,6 +87,7 @@ export default function ManualPayment() {
         console.log(res);
         setSubmitting(false);
         toast.success('Payment submitted successfully');
+        setProcessingOpen(true);
       })
       .catch((error) => {
         console.log(error);
@@ -89,6 +98,54 @@ export default function ManualPayment() {
 
   return (
     <Page title={'Payment'}>
+      <DialogAnimate
+        open={processingOpen}
+        onClose={() => {
+          navigate(PATH_DASHBOARD.paymentHistory);
+          setProcessingOpen(false);
+        }}
+      >
+        <DialogContent>
+          <Stack spacing={1} my={1.4} sx={{ textAlign: 'center' }}>
+            <Box
+              sx={{
+                bgcolor: '#135bfd',
+                width: '70px',
+                height: '70px',
+                display: 'flex',
+                alignItems: 'center',
+                borderRadius: '18px',
+                justifyContent: 'center',
+                alignSelf: 'center'
+              }}
+            >
+              <Iconify
+                sx={{ color: 'white' }}
+                fontSize="40px"
+                color
+                icon={'icon-park-outline:success'}
+              />
+            </Box>
+            <Typography variant="h5">Payment is processing...</Typography>
+
+            <Typography variant="body2">
+              Your transaction is being processed. This may take a couple of minutes. Keep an eye
+              out for emails from Thebrik for the updates about the payment. Go to "My Payment
+              History" to view your payment status.{' '}
+            </Typography>
+            <Box marginTop={2}>
+              <Button
+                variant="contained"
+                size="large"
+                component={RouterLink}
+                to={PATH_DASHBOARD.paymentHistory}
+              >
+                Continue
+              </Button>
+            </Box>
+          </Stack>
+        </DialogContent>
+      </DialogAnimate>
       {isLoading && !hostel ? (
         SkeletonLoad
       ) : (
@@ -133,7 +190,7 @@ export default function ManualPayment() {
                       <Typography variant="body1">
                         <strong>Account number</strong>
                       </Typography>
-                      <Typography varaint="subtitle1" sx={{ color: 'primary.main' }}>
+                      <Typography variant="subtitle1" sx={{ color: 'primary.main' }}>
                         {bank.accountNumber}
                       </Typography>
                     </Stack>

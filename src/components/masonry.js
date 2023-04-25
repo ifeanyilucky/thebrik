@@ -39,10 +39,24 @@ export default function Masonry({ hostel }) {
             imagesLightbox[(photoIndex + imagesLightbox.length - 1) % imagesLightbox.length].image
           }
           onCloseRequest={() => setLightboxOpen(false)}
-          onMovePrevRequest={() =>
-            setPhotoIndex(photoIndex + imagesLightbox.length - (1 % imagesLightbox.length))
-          }
-          onMoveNextRequest={() => setPhotoIndex(photoIndex + (1 % imagesLightbox.length))}
+          onMovePrevRequest={() => {
+            setPhotoIndex((prev) => {
+              if (prev === 0) {
+                return imagesLightbox.length - 1;
+              }
+
+              return prev - 1;
+            });
+          }}
+          onMoveNextRequest={() => {
+            setPhotoIndex((prev) => {
+              if (prev === imagesLightbox.length - 1) {
+                return 0;
+              }
+
+              return prev + 1;
+            });
+          }}
         />
       ) : (
         ''

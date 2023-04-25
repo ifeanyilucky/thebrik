@@ -26,7 +26,7 @@ export default function MainLayout() {
             component={'a'}
             href={`tel:${config.tel.support1}`}
           >
-            {config.tel.support}
+            {config.tel.support1}
           </Link>
         </Typography>
       </Box>

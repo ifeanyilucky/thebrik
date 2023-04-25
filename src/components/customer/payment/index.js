@@ -109,7 +109,14 @@ export default function PaymentList({ payments }) {
                       {payment?.createdAt && fDate(payment?.createdAt)}
                     </TableCell>
                     <TableCell align="left">
-                      <Label variant="ghost" color="success">
+                      <Label
+                        variant="ghost"
+                        color={
+                          (payment.status && payment?.status === 'pending' && 'warning') ||
+                          (payment.status && payment?.status === 'failed' && 'error') ||
+                          (payment.status && payment?.status === 'completed' && 'success')
+                        }
+                      >
                         {payment?.status && sentenceCase(payment?.status)}
                       </Label>
                     </TableCell>
