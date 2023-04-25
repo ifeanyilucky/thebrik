@@ -114,7 +114,7 @@ export default function PaymentList({ payments }) {
                         color={
                           (payment.status && payment?.status === 'pending' && 'warning') ||
                           (payment.status && payment?.status === 'failed' && 'error') ||
-                          (payment.status && payment?.status === 'completed' && 'success')
+                          (payment.status && +payment?.status === 'completed' && 'success')
                         }
                       >
                         {payment?.status && sentenceCase(payment?.status)}

@@ -48,7 +48,7 @@ export default function LandingBenefit() {
             </Stack>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Box component="img" src="/static/images/customer-overlap.svg" alt="hostel-payment" />
+            <Box component="img" src="/static/images/search-page-listings-desktop.png" alt="hostel-payment" />
           </Grid>
         </Grid>
       </Container>

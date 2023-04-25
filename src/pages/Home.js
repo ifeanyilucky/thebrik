@@ -10,7 +10,7 @@ import {
   LandingBudget,
   LandingWhyThebrik,
   LandingTestimonial,
-  LandingListings 
+  LandingListings
 } from '../components/_external-pages/landing';
 import { useDispatch, useSelector } from '../redux/store';
 import { getHostels } from '../redux/slices/hostels';
@@ -24,7 +24,7 @@ const ContentStyle = styled('div')(({ theme }) => ({
 export default function Home() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getHostels());
+    dispatch(getHostels(1));
   }, [dispatch]);
 
   const {

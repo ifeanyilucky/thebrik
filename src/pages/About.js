@@ -182,18 +182,18 @@ function About() {
             </Grid>
           </Container>
         </RootStyle>
-        <RootStyle style={{ marginTop: '3rem' }}>
-          <Container maxWidth="sm" my={5}>
-            <Box sx={{ textAlign: 'center' }}>
-              <Stack spacing={2} paddingBottom={10}>
-                {/* <Typography
-                    variant="subtitle1"
-                    sx={{ color: 'white', textTransform: 'uppercase' }}
-                  >
-                    OUR MISSION
-                  </Typography> */}
-                <Typography variant="h2">Our mission</Typography>
-                <Typography variant="body1">
+        <RootStyle>
+          <Container>
+            <Grid
+              container
+              spacing={{ md: 8, xs: 2 }}
+              justifyContent="space-between"
+              verticalAlign="middle"
+              alignItems="center"
+            >
+              <Grid item md={5}>
+                <Typography variant="h1">Our mission</Typography>
+                <Typography sx={{ my: 2 }} variant="body1">
                   To be the first choice for student accommodation, where student can rent their
                   ideal hostel through a tech-enabled, simple & trustworthy platform that handles
                   the entire student journey. Our dream is to make renting as simple and fast as
@@ -201,8 +201,11 @@ function About() {
                   teleport student into their preferred hostels anywhere, We connect with them. We
                   bring the reality to them.
                 </Typography>
-              </Stack>
-            </Box>
+              </Grid>
+              <Grid item md={6}>
+                <Box component="img" src="/static/images/customer-overlap.svg" />
+              </Grid>
+            </Grid>
           </Container>
         </RootStyle>
       </Page>
