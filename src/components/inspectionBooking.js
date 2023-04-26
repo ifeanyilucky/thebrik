@@ -73,7 +73,7 @@ export default function InspectionBooking({ user, hostel }) {
       initialValues={initValues}
       validationSchema={validationSchema}
       onSubmit={(values) => {
-        dispatch(createBooking(values));
+        dispatch(createBooking({ ...values, date: fDateTime(values.date) }));
         gaEventTracker(values.type, 'booked inspection');
       }}
       render={({ values, setFieldValue }) => (
