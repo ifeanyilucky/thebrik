@@ -98,11 +98,9 @@ export default function InspectionBooking({ user, hostel }) {
                   <DateTimePicker
                     label="Select date and time"
                     value={values.date}
-                    onChange={(value) => setFieldValue('date', fDateTime(value))}
+                    onChange={(value) => setFieldValue('date', value)}
                     renderInput={(params) => <TextField {...params} required />}
                     disabled={!user && true}
-                    clearable
-                    disablePast
                   />
                 </Stack>
               </LocalizationProvider>{' '}
