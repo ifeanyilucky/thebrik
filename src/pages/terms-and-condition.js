@@ -20,9 +20,9 @@ function TermsAndConditions() {
               of the Provider’s website, including any subdomains thereof, and any other websites
               through which the Provider makes its services available (collectively, "Site"), our
               software and applications, and API (collectively, "Application") and all associated
-              services (collectively, "Spleet Services").
+              services (collectively, "Thebrik Services").
               <br />
-              The Site, Application and Spleet Services together are hereinafter collectively
+              The Site, Application and Thebrik Services together are hereinafter collectively
               referred to as the "Thebrik Platform”.
               <br />
               When these Terms mention “Provider”, "Thebrik” “we,” “us,” or “our,” it refers to the
