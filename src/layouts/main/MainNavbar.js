@@ -40,7 +40,7 @@ export default function MainNavbar() {
   const { isAuthenticated, user, logout } = useAuth();
 
   return (
-    <AppBar sx={{ boxShadow: 0, bgcolor: 'transparent', position: 'relative' }}>
+    <AppBar sx={{ zIndex: 100, boxShadow: 0, bgcolor: 'transparent', position: 'relative' }}>
       <ToolbarStyle
         disableGutters
         sx={{

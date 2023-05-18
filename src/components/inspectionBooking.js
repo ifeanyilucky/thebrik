@@ -74,6 +74,7 @@ export default function InspectionBooking({ user, hostel }) {
       validationSchema={validationSchema}
       onSubmit={(values) => {
         dispatch(createBooking({ ...values, date: fDateTime(values.date) }));
+        console.log(values);
         gaEventTracker(values.type, 'booked inspection');
       }}
       render={({ values, setFieldValue }) => (
@@ -98,7 +99,10 @@ export default function InspectionBooking({ user, hostel }) {
                   <DateTimePicker
                     label="Select date and time"
                     value={values.date}
-                    onChange={(value) => setFieldValue('date', value)}
+                    onChange={(value) => {
+                      const formatted = fDateTime(value);
+                      setFieldValue('date', value);
+                    }}
                     renderInput={(params) => <TextField {...params} required />}
                     disabled={!user && true}
                   />

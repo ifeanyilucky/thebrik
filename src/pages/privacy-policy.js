@@ -7,7 +7,7 @@ function PrivacyPolicy() {
   return (
     <Page title="Privacy policy">
       <Container maxWidth={'md'}>
-        <Stack spacing={3}>
+        <Stack spacing={3} my={5}>
           <Stack spacing={2}>
             <Typography variant="h3">Privacy Policy for Thebrik Limited</Typography>
             <Typography variant="body2">
@@ -22,13 +22,13 @@ function PrivacyPolicy() {
               created with the help of the Free Privacy Policy Generator.
             </Typography>
           </Stack>
-          <Stack>
+          <Stack spacing={1}>
             <Typography variant="h5">Consent</Typography>
             <Typography variant="body2">
               By using our website, you hereby consent to our Privacy Policy and agree to its terms.
             </Typography>
           </Stack>
-          <Stack>
+          <Stack spacing={1}>
             <Typography variant="h5">Information we collect</Typography>
             <Typography variant="body2">
               The personal information that you are asked to provide, and the reasons why you are
@@ -41,7 +41,7 @@ function PrivacyPolicy() {
               telephone number.
             </Typography>
           </Stack>
-          <Stack>
+          <Stack spacing={1}>
             <Typography variant="h5">How we use your information</Typography>
             <Typography variant="body2">
               We use the information we collect in various ways, including to:
@@ -63,7 +63,7 @@ function PrivacyPolicy() {
               Find and prevent fraud
             </Typography>
           </Stack>
-          <Stack>
+          <Stack spacing={1}>
             <Typography variant="h5">Log Files</Typography>
 
             <Typography variant="body2">
@@ -77,7 +77,7 @@ function PrivacyPolicy() {
               gathering demographic information.
             </Typography>
           </Stack>
-          <Stack>
+          <Stack spacing={1}>
             <Typography variant="h5">Cookies and Web Beacons</Typography>
             <Typography variant="body2">
               Like any other website, www.thebrik.co uses 'cookies'. These cookies are used to store
@@ -87,7 +87,7 @@ function PrivacyPolicy() {
               information.
             </Typography>
           </Stack>
-          <Stack>
+          <Stack spacing={1}>
             <Typography variant="h5">Google DoubleClick DART Cookie</Typography>
             <Typography variant="body2">
               Google is one of a third-party vendor on our site. It also uses cookies, known as DART
@@ -97,7 +97,7 @@ function PrivacyPolicy() {
               following URL – https://policies.google.com/technologies/ads
             </Typography>
           </Stack>
-          <Stack>
+          <Stack spacing={1}>
             <Typography variant="h5">Advertising Partners Privacy Policies</Typography>
             <Typography variant="body2">
               You may consult this list to find the Privacy Policy for each of the advertising
@@ -111,7 +111,7 @@ function PrivacyPolicy() {
               by third-party advertisers.
             </Typography>
           </Stack>
-          <Stack>
+          <Stack spacing={1}>
             <Typography variant="h5">Third Party Privacy Policies</Typography>
             <Typography variant="body2">
               www.thebrik.co's Privacy Policy does not apply to other advertisers or websites. Thus,
@@ -123,8 +123,7 @@ function PrivacyPolicy() {
               websites.
             </Typography>
           </Stack>
-
-          <Stack>
+          <Stack spacing={1}>
             <Typography variant="h5">
               CCPA Privacy Rights (Do Not Sell My Personal Information)
             </Typography>
@@ -138,7 +137,7 @@ function PrivacyPolicy() {
               you. If you would like to exercise any of these rights, please contact us.
             </Typography>
           </Stack>
-          <Stack>
+          <Stack spacing={1}>
             <Typography variant="h5">GDPR Data Protection Rights</Typography>
             <Typography variant="body2">
               We would like to make sure you are fully aware of all of your data protection rights.
@@ -157,8 +156,7 @@ function PrivacyPolicy() {
               respond to you. If you would like to exercise any of these rights, please contact us.
             </Typography>
           </Stack>
-
-          <Stack>
+          <Stack spacing={1}>
             <Typography variant="h5">Children's Information</Typography>
             <Typography variant="body2">
               Another part of our priority is adding protection for children while using the

@@ -96,15 +96,18 @@ export const SelectPaymentMethod = ({
   const methods = [
     {
       label: 'Pay with card',
-      value: 'card'
+      value: 'card',
+      disabled: false
     },
     {
       label: 'Bank transfer',
-      value: 'transfer'
+      value: 'transfer',
+      disabled: true
     },
     {
       label: 'Bank deposit',
-      value: 'deposit'
+      value: 'deposit',
+      disabled: true
     }
   ];
 
@@ -138,8 +141,14 @@ export const SelectPaymentMethod = ({
               aria-labelledby="payment-method-radio-group"
               defaultValue="card"
             >
-              {methods.map(({ value, label }, index) => (
-                <FormControlLabel key={index} value={value} control={<Radio />} label={label} />
+              {methods.map(({ value, label, disabled }, index) => (
+                <FormControlLabel
+                  disabled={disabled}
+                  key={index}
+                  value={value}
+                  control={<Radio />}
+                  label={label}
+                />
               ))}
             </RadioGroup>
           </FormControl>
